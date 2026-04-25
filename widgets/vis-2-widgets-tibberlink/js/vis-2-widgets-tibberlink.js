@@ -199,7 +199,7 @@ vis.binds["vis-2-widgets-tibberlink"] = {
 
         $div.html(
             '<div class="tib-w"><div class="' + cls + '">' +
-            '<div class="tib-pc-title">⚡ ' + title + '</div>' +
+            '<div class="tib-pc-title">&#9889; ' + title + '</div>' +
             '<div id="tib_pc_big_' + w + '" class="tib-pc-big">-- ct/kWh</div>' +
             '<div class="tib-pc-badge-row">' +
               '<span id="tib_pc_badge_' + w + '" class="tib-pc-badge">--</span>' +
@@ -252,7 +252,7 @@ vis.binds["vis-2-widgets-tibberlink"] = {
 
         $div.html(
             '<div class="tib-w"><div class="' + cls + '">' +
-            '<div class="tib-chart-title">⚡ ' + title + '</div>' +
+            '<div class="tib-chart-title">&#9889; ' + title + '</div>' +
             '<div id="tib_chart_bars_' + w + '" class="tib-chart-bars-wrap"></div>' +
             '<div id="tib_chart_info_' + w + '" class="tib-chart-info">-- ct/kWh</div>' +
             '</div></div>'
@@ -366,7 +366,7 @@ vis.binds["vis-2-widgets-tibberlink"] = {
 
         $div.html(
             '<div class="tib-w"><div class="' + cls + '">' +
-            '<div class="tib-live-title">⚡ ' + title + '</div>' +
+            '<div class="tib-live-title">&#9889; ' + title + '</div>' +
             '<div id="tib_live_big_' + w + '" class="tib-live-big">-- W</div>' +
             '<div class="tib-live-stats">' +
               '<div class="tib-stat-box">' +
