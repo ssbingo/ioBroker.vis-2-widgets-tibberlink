@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "news": {
+      "0.2.0": {
+        "en": "Fix widget discovery: add license field, remove vis-1 restart trigger",
+        "de": "Widget-Erkennung korrigiert: Lizenzfeld ergänzt, vis-1 Neustart-Trigger entfernt",
+        "ru": "Исправлено обнаружение виджетов: добавлено поле лицензии, удалён триггер перезапуска vis-1",
+        "pt": "Correção de descoberta de widget: campo de licença adicionado, acionador de reinicialização vis-1 removido",
+        "nl": "Widget-detectie gecorrigeerd: licentieveld toegevoegd, vis-1 herstart-trigger verwijderd",
+        "fr": "Correction de la détection de widget: champ de licence ajouté, déclencheur de redémarrage vis-1 supprimé",
+        "it": "Correzione rilevamento widget: campo licenza aggiunto, trigger riavvio vis-1 rimosso",
+        "es": "Corrección de detección de widget: campo de licencia añadido, eliminador de reinicio vis-1 eliminado",
+        "pl": "Naprawiono wykrywanie widżetów: dodano pole licencji, usunięto wyzwalacz restartu vis-1",
+        "uk": "Виправлено виявлення віджетів: додано поле ліцензії, видалено тригер перезапуску vis-1",
+        "zh-cn": "修复小部件发现：添加许可证字段，删除 vis-1 重启触发器"
+      },
       "0.1.0": {
         "en": "First release: price card, price chart and live power widgets",
         "de": "Erstveröffentlichung: Preiskarte, Preisdiagramm und Live-Verbrauch Widgets",
@@ -52,6 +65,7 @@
       "vis-2",
       "iobroker"
     ],
+    "license": "MIT",
     "licenseInformation": {
       "type": "free",
       "license": "MIT"

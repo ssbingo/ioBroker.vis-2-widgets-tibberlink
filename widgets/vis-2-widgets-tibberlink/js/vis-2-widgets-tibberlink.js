@@ -2,7 +2,7 @@
     ioBroker.vis vis-2-widgets-tibberlink — Widget-Set
     3 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch
 
-    version: "0.1.0"
+    version: "0.2.0"
     Copyright 2026 ssbingo s.sternitzke@online.de
 */
 "use strict";
@@ -29,7 +29,7 @@ if (typeof systemDictionary !== "undefined") {
 }
 
 vis.binds["vis-2-widgets-tibberlink"] = {
-    version: "0.1.0",
+    version: "0.2.0",
 
     showVersion: function () {
         if (vis.binds["vis-2-widgets-tibberlink"].version) {
