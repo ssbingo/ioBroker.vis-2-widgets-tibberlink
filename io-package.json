@@ -64,8 +64,7 @@
     "loglevel": "info",
     "tier": 3,
     "restartAdapters": [
-      "vis-2",
-      "vis"
+      "vis-2"
     ],
     "onlyWWW": true,
     "singleton": true,
