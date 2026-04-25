@@ -1,0 +1,190 @@
+/* ioBroker.vis vis-2-widgets-tibberlink — Widget CSS */
+
+/* ── Gemeinsam ─────────────────────────────────────────────────────────── */
+.tib-w {
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Skalierung (Widget-Inhalt skaliert synchron mit Container-Größe) ──── */
+.tib-scale-outer {
+    width: 100%; height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.tib-scale-inner {
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: 0 0;
+    /* width wird per JS gesetzt (Design-Breite des jeweiligen Widgets) */
+}
+
+/* ── Gemeinsame Stat-Boxen ──────────────────────────────────────────────── */
+.tib-stat-box {
+    background: rgba(255,255,255,.07);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+.tib-stat-label {
+    font-size: .58rem;
+    opacity: .65;
+    margin-bottom: 3px;
+}
+.tib-stat-val {
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+/* ── Widget 1: Aktueller Tibber Preis ──────────────────────────────────── */
+.tib-pc-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px;
+    padding: 14px;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.tib-pc-wrap.light {
+    background: #fff;
+    color: #2c3e50;
+    border: 1px solid #e8eef5;
+}
+.tib-pc-wrap.light .tib-stat-box {
+    background: rgba(0,0,0,.04);
+    border: 1px solid #e8eef5;
+}
+
+.tib-pc-title {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: .75;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+.tib-pc-big {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    transition: color .4s;
+}
+.tib-pc-badge-row {
+    text-align: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+.tib-pc-badge {
+    display: inline-block;
+    color: #fff;
+    padding: 3px 14px;
+    border-radius: 10px;
+    font-size: .7rem;
+    font-weight: 600;
+    transition: background .4s;
+}
+.tib-pc-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    flex: 1;
+}
+
+/* ── Widget 2: Preisdiagramm ─────────────────────────────────────────────── */
+.tib-chart-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px;
+    padding: 12px;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.tib-chart-wrap.light {
+    background: #fff;
+    color: #2c3e50;
+    border: 1px solid #e8eef5;
+}
+.tib-chart-title {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: .75;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+.tib-chart-bars-wrap {
+    flex: 1;
+    min-height: 0;
+}
+.tib-chart-bars-wrap svg {
+    width: 100%;
+    height: 100%;
+}
+.tib-chart-info {
+    font-size: .55rem;
+    opacity: .55;
+    text-align: center;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* ── Widget 3: Live Verbrauch ────────────────────────────────────────────── */
+.tib-live-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px;
+    padding: 14px;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.tib-live-wrap.light {
+    background: #fff;
+    color: #2c3e50;
+    border: 1px solid #e8eef5;
+}
+.tib-live-wrap.light .tib-stat-box {
+    background: rgba(0,0,0,.04);
+    border: 1px solid #e8eef5;
+}
+.tib-live-title {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: .75;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+.tib-live-big {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+    transition: color .4s;
+}
+.tib-live-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+.tib-live-day {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
+}

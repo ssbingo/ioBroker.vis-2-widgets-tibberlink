@@ -1,0 +1,87 @@
+{
+  "common": {
+    "name": "vis-2-widgets-tibberlink",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "First release: price card, price chart and live power widgets",
+        "de": "Erstveröffentlichung: Preiskarte, Preisdiagramm und Live-Verbrauch Widgets",
+        "ru": "Первый выпуск: виджеты текущей цены, графика цен и текущего потребления",
+        "pt": "Primeiro lançamento: widgets de preço atual, gráfico de preços e consumo ao vivo",
+        "nl": "Eerste versie: widgets voor actuele prijs, prijsdiagram en live verbruik",
+        "fr": "Première version: widgets prix actuel, graphique des prix et consommation en direct",
+        "it": "Prima versione: widget prezzo attuale, grafico prezzi e consumo in tempo reale",
+        "es": "Primera versión: widgets de precio actual, gráfico de precios y consumo en tiempo real",
+        "pl": "Pierwsze wydanie: widżety aktualnej ceny, wykresu cen i zużycia na żywo",
+        "uk": "Перший випуск: віджети поточної ціни, графіка цін та живого споживання",
+        "zh-cn": "首次发布：当前价格、价格图表和实时功耗小部件"
+      }
+    },
+    "titleLang": {
+      "en": "Vis 2 Widgets Tibberlink",
+      "de": "Vis 2 Widgets Tibberlink",
+      "ru": "Виджеты Vis 2 Tibberlink",
+      "pt": "Vis 2 Widgets Tibberlink",
+      "nl": "Vis 2 Widgets Tibberlink",
+      "fr": "Widgets Vis 2 Tibberlink",
+      "it": "Visualizza 2 Widget Tibberlink",
+      "es": "Vis 2 Widgets Tibberlink",
+      "pl": "Vis 2 Widżety Tibberlink",
+      "uk": "Віджети Vis 2 Tibberlink",
+      "zh-cn": "Vis 2 小部件 Tibberlink"
+    },
+    "desc": {
+      "en": "Widgets for Tibberlink",
+      "de": "Widgets für Tibberlink",
+      "ru": "Виджеты для Tibberlink",
+      "pt": "Widgets para Tibberlink",
+      "nl": "Widgets voor Tibberlink",
+      "fr": "Widgets pour Tibberlink",
+      "it": "Widget per Tibberlink",
+      "es": "Widgets para Tibberlink",
+      "pl": "Widżety dla Tibberlink",
+      "uk": "Віджети для Tibberlink",
+      "zh-cn": "Tibberlink 小部件"
+    },
+    "authors": [
+      "ssbingo <s.sternitzke@online.de>"
+    ],
+    "keywords": [
+      "tibberlink",
+      "tibber",
+      "vis-2",
+      "iobroker"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "vis-2-widgets-tibberlink.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png",
+    "readme": "https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "restartAdapters": [
+      "vis-2",
+      "vis"
+    ],
+    "onlyWWW": true,
+    "singleton": true,
+    "type": "visualization-widgets",
+    "mode": "none",
+    "adminUI": {
+      "config": "none"
+    },
+    "dependencies": [
+      {
+        "vis-2": ">=2.0.0"
+      }
+    ],
+    "globalDependencies": []
+  },
+  "native": {},
+  "objects": [],
+  "instanceObjects": []
+}

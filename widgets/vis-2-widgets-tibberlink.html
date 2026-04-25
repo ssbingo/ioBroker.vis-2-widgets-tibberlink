@@ -1,0 +1,70 @@
+<!--
+    ioBroker.vis vis-2-widgets-tibberlink Widget-Set
+    3 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch
+
+    version: "0.1.0"
+    Copyright 2026 ssbingo s.sternitzke@online.de
+-->
+<link rel="stylesheet" href="widgets/vis-2-widgets-tibberlink/css/style.css" />
+<script type="text/javascript" src="widgets/vis-2-widgets-tibberlink/js/vis-2-widgets-tibberlink.js"></script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     WIDGET 1 – Aktueller Tibber Preis
+     Zeigt den aktuellen Strompreis, Preisstufe und Aufschlüsselung.
+     OIDs stammen aus dem tibberlink-Adapter (iobroker.tibberlink).
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script id="tplVis-2-widgets-tibberlinkPriceCard"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="vis-2-widgets-tibberlink"
+        data-vis-name="Aktueller Tibber Preis"
+        data-vis-type="val"
+        data-vis-attrs="group.OIDs;oid_price[tibberlink.0.Homes.YourHomeId.CurrentPrice.total]/id;oid_energy[tibberlink.0.Homes.YourHomeId.CurrentPrice.energy]/id;oid_tax[tibberlink.0.Homes.YourHomeId.CurrentPrice.tax]/id;oid_level[tibberlink.0.Homes.YourHomeId.CurrentPrice.level]/id;group.Darstellung;tib_title[Tibber Strompreis]/text;tib_darkmode[true]/checkbox"
+        data-vis-style="width:280px;height:200px;position:static;"
+        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:180px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px">⚡ Tibber Strompreis</div><div style="font-size:2.4rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:8px">12.34 ct/kWh</div><div style="text-align:center;margin-bottom:12px"><span style="background:#27ae60;color:#fff;padding:3px 14px;border-radius:10px;font-size:.7rem;font-weight:600">Günstig</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;flex:1"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Energieanteil</div><div style="font-size:.88rem;font-weight:700;color:#3498db">8.02 ct</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Steuer/Abgaben</div><div style="font-size:.88rem;font-weight:700;color:#9b59b6">4.32 ct</div></div></div></div>'>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:280px;height:200px;" id="<%= this.data.attr('wid') %>"><%
+        vis.binds['vis-2-widgets-tibberlink'].createPriceCard(this.data.wid, this.view, this.data, this.style);
+    %></div>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     WIDGET 2 – Tibber Preisdiagramm
+     Zeigt die Stundenpreise von heute (und morgen falls verfügbar) als
+     farbiges Balkendiagramm. Die aktuelle Stunde ist hervorgehoben.
+     Farben entsprechen der tibber-Preisstufe (VERY_CHEAP..VERY_EXPENSIVE).
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script id="tplVis-2-widgets-tibberlinkPriceChart"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="vis-2-widgets-tibberlink"
+        data-vis-name="Tibber Preisdiagramm"
+        data-vis-type="val"
+        data-vis-attrs="group.OIDs;oid_today[tibberlink.0.Homes.YourHomeId.PricesToday.json]/id;oid_tomorrow[tibberlink.0.Homes.YourHomeId.PricesTomorrow.json]/id;group.Darstellung;tib_title[Tibber Preisübersicht]/text;tib_darkmode[true]/checkbox"
+        data-vis-style="width:360px;height:200px;position:static;"
+        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:12px;width:340px;height:180px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px;flex-shrink:0">⚡ Tibber Preisübersicht</div><div style="flex:1;display:flex;align-items:flex-end;gap:1px;padding:0 2px"><div style="flex:1;background:#27ae60;height:35%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:28%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:25%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:45%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:55%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#e67e22;height:70%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#e74c3c;height:100%;border-radius:2px 2px 0 0;opacity:.8;outline:2px solid #fff"></div><div style="flex:1;background:#e67e22;height:78%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:60%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#27ae60;height:42%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#27ae60;height:38%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:30%;border-radius:2px 2px 0 0;opacity:.8"></div></div><div style="font-size:.55rem;opacity:.5;text-align:center;margin-top:5px;flex-shrink:0">Min: 8.50  ·  Max: 28.30 ct/kWh</div></div>'>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:360px;height:200px;" id="<%= this.data.attr('wid') %>"><%
+        vis.binds['vis-2-widgets-tibberlink'].createPriceChart(this.data.wid, this.view, this.data, this.style);
+    %></div>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     WIDGET 3 – Tibber Live Verbrauch
+     Zeigt den Echtzeit-Stromverbrauch (erfordert Tibber Pulse).
+     Aktuelle Leistung groß, dazu Min/Ø/Max und Tageswerte.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script id="tplVis-2-widgets-tibberlinkLivePower"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="vis-2-widgets-tibberlink"
+        data-vis-name="Tibber Live Verbrauch"
+        data-vis-type="val"
+        data-vis-attrs="group.OIDs Live;oid_power[tibberlink.0.Homes.YourHomeId.LiveMeasurement.power]/id;oid_minpower[tibberlink.0.Homes.YourHomeId.LiveMeasurement.minPower]/id;oid_avgpower[tibberlink.0.Homes.YourHomeId.LiveMeasurement.averagePower]/id;oid_maxpower[tibberlink.0.Homes.YourHomeId.LiveMeasurement.maxPower]/id;group.OIDs Tageswerte;oid_consumption[tibberlink.0.Homes.YourHomeId.LiveMeasurement.accumulatedConsumption]/id;oid_cost[tibberlink.0.Homes.YourHomeId.LiveMeasurement.accumulatedCost]/id;group.Darstellung;tib_title[Tibber Live]/text;tib_darkmode[true]/checkbox"
+        data-vis-style="width:280px;height:260px;position:static;"
+        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px;flex-shrink:0">⚡ Tibber Live</div><div style="font-size:2.6rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:12px;flex-shrink:0">1.842 kW</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;flex-shrink:0"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Min</div><div style="font-size:.82rem;font-weight:700;color:#1abc9c">450 W</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Ø Mittel</div><div style="font-size:.82rem;font-weight:700;color:#3498db">1.10 kW</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Max</div><div style="font-size:.82rem;font-weight:700;color:#e74c3c">3.20 kW</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Verbrauch heute</div><div style="font-size:.88rem;font-weight:700;color:#27ae60">12.456 kWh</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Kosten heute</div><div style="font-size:.88rem;font-weight:700;color:#f39c12">1.87 €</div></div></div></div>'>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:280px;height:260px;" id="<%= this.data.attr('wid') %>"><%
+        vis.binds['vis-2-widgets-tibberlink'].createLivePower(this.data.wid, this.view, this.data, this.style);
+    %></div>
+</script>
