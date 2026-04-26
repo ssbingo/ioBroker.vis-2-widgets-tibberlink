@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.3.3 (2026-04-26)
+* (ssbingo) Documentatie bijgewerkt
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2: prijsgrafiek vervangen door TibberCheapestWindow (goedkoopste N-uursvenster met sparkline)
 

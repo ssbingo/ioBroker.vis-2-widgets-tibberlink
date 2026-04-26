@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "news": {
+      "0.3.3": {
+        "en": "Update documentation",
+        "de": "Dokumentation angepasst",
+        "ru": "Обновление документации",
+        "pt": "Documentação actualizada",
+        "nl": "Documentatie bijgewerkt",
+        "fr": "Documentation mise à jour",
+        "it": "Documentazione aggiornata",
+        "es": "Documentación actualizada",
+        "pl": "Aktualizacja dokumentacji",
+        "uk": "Оновлення документації",
+        "zh-cn": "更新文档"
+      },
       "0.3.2": {
         "en": "Widget 2: replace price chart with TibberCheapestWindow (cheapest N-hour sliding window with sparkline)",
         "de": "Widget 2: Preisdiagramm durch TibberCheapestWindow ersetzt (günstigstes N-Stunden-Fenster mit Sparkline)",

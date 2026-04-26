@@ -2,7 +2,7 @@
     ioBroker.vis vis-2-widgets-tibberlink — Widget-Set
     4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.3.2"
+    version: "0.3.3"
     Copyright 2026 ssbingo s.sternitzke@online.de
 */
 "use strict";
@@ -39,7 +39,7 @@ if (typeof systemDictionary !== "undefined") {
 }
 
 vis.binds["vis-2-widgets-tibberlink"] = {
-    version: "0.3.2",
+    version: "0.3.3",
 
     showVersion: function () {
         if (vis.binds["vis-2-widgets-tibberlink"].version) {

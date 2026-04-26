@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.3.3 (2026-04-26)
+* (ssbingo) Dokumentation angepasst
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2: Preisdiagramm durch TibberCheapestWindow ersetzt (günstigstes N-Stunden-Fenster mit Sparkline)
 

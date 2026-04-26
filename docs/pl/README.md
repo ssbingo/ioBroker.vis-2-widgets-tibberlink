@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.3.3 (2026-04-26)
+* (ssbingo) Aktualizacja dokumentacji
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widżet 2: wykres cen zastąpiony przez TibberCheapestWindow (najtańsze okno przesuwne N godzin ze sparkline)
 

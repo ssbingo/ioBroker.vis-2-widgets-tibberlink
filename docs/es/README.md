@@ -102,6 +102,9 @@ Agrega los datos de consumo `jsonDaily` de tibberlink para el mes calendario act
 
 ## Changelog
 
+### 0.3.3 (2026-04-26)
+* (ssbingo) Documentación actualizada
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2: gráfico de precios reemplazado por TibberCheapestWindow (ventana deslizante de N horas más barata con sparkline)
 

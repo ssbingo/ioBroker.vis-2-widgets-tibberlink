@@ -89,6 +89,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.3.3 (2026-04-26)
+* (ssbingo) Update documentation
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2: replace price chart with TibberCheapestWindow (cheapest N-hour sliding window with sparkline)
 

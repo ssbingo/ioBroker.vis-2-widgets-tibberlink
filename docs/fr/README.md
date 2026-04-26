@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.3.3 (2026-04-26)
+* (ssbingo) Documentation mise à jour
+
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2 : graphique des prix remplacé par TibberCheapestWindow (fenêtre glissante N heures la moins chère avec sparkline)
 
