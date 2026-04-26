@@ -26,6 +26,68 @@ This widget adapter does **not** fetch any data from Tibber itself. It reads sta
 
 Your **Home ID** is the UUID visible in the ioBroker objects tree under `tibberlink.0.Homes.<UUID>`, e.g. `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
+## Widgets
+
+### Widget 1 — Current Tibber Price
+
+Displays the current electricity price in large text, a colour-coded level badge (VERY_CHEAP … VERY_EXPENSIVE), the valid-from time, and an optional cost breakdown.
+
+| Option | Default | Description |
+|---|---|---|
+| `oid_total` | `…CurrentPrice.total` | Total price in €/kWh |
+| `oid_energy` | `…CurrentPrice.energy` | Energy component in €/kWh |
+| `oid_tax` | `…CurrentPrice.tax` | Tax / surcharges in €/kWh |
+| `oid_level` | `…CurrentPrice.level` | Price level string |
+| `oid_startsAt` | `…CurrentPrice.startsAt` | ISO timestamp of current hour |
+| `show_breakdown` | `true` | Show energy and tax tiles |
+| `currency` | `ct/kWh` | Unit label shown after the price |
+| `tib_darkmode` | `true` | Dark (default) or light theme |
+
+---
+
+### Widget 2 — Cheapest Time Window
+
+Uses a sliding-window algorithm to find the cheapest consecutive N-hour block in today's (and optionally tomorrow's) price data. Displays start and end time, average price, and a colour-coded sparkline bar chart. Slot duration (15 min / 60 min) is auto-detected.
+
+| Option | Default | Description |
+|---|---|---|
+| `oid_prices_today` | `…PricesToday.json` | JSON array of today's price slots |
+| `oid_prices_tomorrow` | `…PricesTomorrow.json` | JSON array of tomorrow's price slots |
+| `amount_hours` | `3` | Window size in hours |
+| `future_only` | `true` | Ignore slots that have already ended |
+| `show_tomorrow` | `true` | Include tomorrow's prices |
+| `tib_darkmode` | `true` | Dark (default) or light theme |
+
+---
+
+### Widget 3 — Live Power Consumption
+
+Shows real-time power draw in large text alongside minimum, average, and maximum values and the accumulated daily consumption and cost. Requires a **Tibber Pulse** device connected to your meter.
+
+| Option | Default | Description |
+|---|---|---|
+| `oid_power` | `…LiveMeasurement.power` | Current power in W |
+| `oid_minpower` | `…LiveMeasurement.minPower` | Session minimum in W |
+| `oid_avgpower` | `…LiveMeasurement.averagePower` | Session average in W |
+| `oid_maxpower` | `…LiveMeasurement.maxPower` | Session maximum in W |
+| `oid_consumption` | `…LiveMeasurement.accumulatedConsumption` | Daily consumption in kWh |
+| `oid_cost` | `…LiveMeasurement.accumulatedCost` | Daily cost in € |
+| `tib_darkmode` | `true` | Dark (default) or light theme |
+
+---
+
+### Widget 4 — Monthly Electricity Cost
+
+Aggregates the tibberlink `jsonDaily` consumption data for the current calendar month. Shows total cost, total consumption, average price, an end-of-month projection, and a progress bar indicating how far through the month you are. Requires **"Historical consumption data retrieval"** enabled in tibberlink with a daily dataset count of at least 31.
+
+| Option | Default | Description |
+|---|---|---|
+| `oid_jsonDaily` | `…Consumption.jsonDaily` | JSON array of daily consumption records |
+| `currency_symbol` | `€` | Currency symbol shown after amounts |
+| `show_base_fee` | `false` | Add a fixed monthly base fee to totals |
+| `base_fee_per_month` | `0` | Base fee in € (used when `show_base_fee` is on) |
+| `tib_darkmode` | `true` | Dark (default) or light theme |
+
 ## Changelog
 ### 0.3.2 (2026-04-26)
 * (ssbingo) Widget 2: replace price chart with TibberCheapestWindow (cheapest N-hour sliding window with sparkline)
