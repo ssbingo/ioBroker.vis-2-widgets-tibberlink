@@ -2,7 +2,7 @@
     ioBroker.vis vis-2-widgets-tibberlink — Widget-Set
     4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.3.1"
+    version: "0.3.2"
     Copyright 2026 ssbingo s.sternitzke@online.de
 */
 "use strict";
@@ -20,8 +20,11 @@ if (typeof systemDictionary !== "undefined") {
         "oid_startsAt":    { "en": "Price slot start OID",       "de": "Preisslot Start OID" },
         "show_breakdown":  { "en": "Show energy/tax breakdown",  "de": "Aufschlüsselung anzeigen" },
         "currency":        { "en": "Price unit label",           "de": "Preiseinheit" },
-        "oid_today":      { "en": "Today Prices JSON OID",      "de": "Heute Preise JSON OID" },
-        "oid_tomorrow":   { "en": "Tomorrow Prices JSON OID",   "de": "Morgen Preise JSON OID" },
+        "oid_prices_today":    { "en": "Today Prices JSON OID",     "de": "Heute Preise JSON OID" },
+        "oid_prices_tomorrow": { "en": "Tomorrow Prices JSON OID",  "de": "Morgen Preise JSON OID" },
+        "amount_hours":        { "en": "Window size (hours)",        "de": "Fenstergröße (Stunden)" },
+        "future_only":         { "en": "Future slots only",          "de": "Nur zukünftige Slots" },
+        "show_tomorrow":       { "en": "Include tomorrow",           "de": "Morgen einbeziehen" },
         "oid_power":      { "en": "Current Power OID",          "de": "Aktuelle Leistung OID" },
         "oid_consumption":{ "en": "Consumption Today OID",      "de": "Verbrauch Heute OID" },
         "oid_cost":       { "en": "Cost Today OID",             "de": "Kosten Heute OID" },
@@ -36,7 +39,7 @@ if (typeof systemDictionary !== "undefined") {
 }
 
 vis.binds["vis-2-widgets-tibberlink"] = {
-    version: "0.3.1",
+    version: "0.3.2",
 
     showVersion: function () {
         if (vis.binds["vis-2-widgets-tibberlink"].version) {
@@ -266,118 +269,201 @@ vis.binds["vis-2-widgets-tibberlink"] = {
         B._subscribe(w, data, ["oid_total", "oid_energy", "oid_tax", "oid_level", "oid_startsAt"], update);
     },
 
-    // ── Widget 2: Tibber Preisdiagramm ──────────────────────────────────────
-    createPriceChart: function (widgetID, view, data, style) {
+    // ── Widget 2: Günstigstes Zeitfenster ──────────────────────────────────
+    createCheapestWindow: function (widgetID, view, data, style) {
         var B    = vis.binds["vis-2-widgets-tibberlink"];
         var $div = $("#" + widgetID);
         if (!$div.length) {
-            return setTimeout(function () { B.createPriceChart(widgetID, view, data, style); }, 100);
+            return setTimeout(function () { B.createCheapestWindow(widgetID, view, data, style); }, 100);
         }
 
-        var dark  = B._isDark(data);
-        var title = data.attr("tib_title") || "Tibber Preisübersicht";
-        var w     = widgetID;
-        var cls   = dark ? "tib-chart-wrap" : "tib-chart-wrap light";
+        var dark         = B._isDark(data);
+        var title        = data.attr("tib_title")    || "Günstigstes Fenster";
+        var amountHours  = parseInt(data.attr("amount_hours"), 10) || 3;
+        var futureOnly   = (function (v) { return v !== false && v !== "false" && v !== "0" && v !== 0; })(data.attr("future_only"));
+        var showTomorrow = (function (v) { return v !== false && v !== "false" && v !== "0" && v !== 0; })(data.attr("show_tomorrow"));
+        var w   = widgetID;
+        var cls = dark ? "tib-cw-wrap" : "tib-cw-wrap light";
+        var lc  = dark ? "rgba(255,255,255,.15)" : "rgba(0,0,0,.10)";
+        var tc  = dark ? "rgba(255,255,255,.40)" : "rgba(0,0,0,.30)";
 
         $div.html(
             '<div class="tib-w"><div class="' + cls + '">' +
-            '<div class="tib-chart-title">&#9889; ' + title + '</div>' +
-            '<div id="tib_chart_bars_' + w + '" class="tib-chart-bars-wrap"></div>' +
-            '<div id="tib_chart_info_' + w + '" class="tib-chart-info">-- ct/kWh</div>' +
+            '<div class="tib-cw-title">&#9889; ' + title + '</div>' +
+            '<div class="tib-cw-times">' +
+              '<div class="tib-cw-time-block">' +
+                '<div class="tib-cw-time-label">Start</div>' +
+                '<div id="tib_cw_start_' + w + '" class="tib-cw-time-val">--:--</div>' +
+              '</div>' +
+              '<div class="tib-cw-arrow">&#8594;</div>' +
+              '<div class="tib-cw-time-block">' +
+                '<div class="tib-cw-time-label">Ende</div>' +
+                '<div id="tib_cw_end_' + w + '" class="tib-cw-time-val">--:--</div>' +
+              '</div>' +
+            '</div>' +
+            '<div id="tib_cw_avg_' + w + '" class="tib-cw-avg">-- ct/kWh</div>' +
+            '<div id="tib_cw_spark_' + w + '" class="tib-cw-spark"></div>' +
+            '<div id="tib_cw_info_'  + w + '" class="tib-cw-info">-- · ' + amountHours + ' Stunden</div>' +
             '</div></div>'
         );
-        B._applyScale($div, 360);
+        B._applyScale($div, 280);
 
-        function renderBars() {
-            var barsEl = B._el("tib_chart_bars_" + w);
-            var infoEl = B._el("tib_chart_info_" + w);
-            if (!barsEl) return;
+        function slotCol(level, inWin) {
+            if (inWin) return "#27ae60";
+            switch ((level || "").toUpperCase()) {
+                case "VERY_CHEAP":     return "#1abc9c";
+                case "CHEAP":          return "#52d68a";
+                case "NORMAL":         return "#7f8c8d";
+                case "EXPENSIVE":      return "#f39c12";
+                case "VERY_EXPENSIVE": return "#e74c3c";
+                default:               return "#7f8c8d";
+            }
+        }
 
-            var today    = [];
-            var tomorrow = [];
-            var todayRaw    = B._val(data, "oid_today")    || "[]";
-            var tomorrowRaw = B._val(data, "oid_tomorrow") || "[]";
-            try { today    = JSON.parse(todayRaw)    || []; } catch (e) {}
-            try { tomorrow = JSON.parse(tomorrowRaw) || []; } catch (e) {}
+        function fmtTime(iso) {
+            try {
+                var d = new Date(iso);
+                return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+            } catch (e) { return "--:--"; }
+        }
 
-            var all = today.concat(tomorrow);
-            if (!all.length) {
-                barsEl.innerHTML = '<div style="opacity:.5;text-align:center;padding:20px 0">Keine Preisdaten</div>';
+        function renderWindow() {
+            var today    = [], tomorrow = [];
+            try { today    = JSON.parse(B._val(data, "oid_prices_today")    || "[]") || []; } catch (e) {}
+            try { tomorrow = JSON.parse(B._val(data, "oid_prices_tomorrow") || "[]") || []; } catch (e) {}
+
+            var allSlots = today.concat(showTomorrow ? tomorrow : []);
+            var todayLen = today.length;
+
+            // Auto-detect slot duration in minutes
+            var slotMin = 60;
+            if (allSlots.length >= 2 && allSlots[0].startsAt && allSlots[1].startsAt) {
+                try {
+                    slotMin = Math.round(
+                        (new Date(allSlots[1].startsAt) - new Date(allSlots[0].startsAt)) / 60000
+                    );
+                } catch (e) {}
+            }
+            var windowSize = Math.max(1, Math.round(amountHours * 60 / slotMin));
+
+            // Filter: only slots whose end time is still in the future
+            var now    = new Date();
+            var slots  = futureOnly
+                ? allSlots.filter(function (p) {
+                    if (!p.startsAt) return false;
+                    try {
+                        return new Date(new Date(p.startsAt).getTime() + slotMin * 60000) > now;
+                    } catch (e) { return false; }
+                })
+                : allSlots;
+
+            var sparkEl = B._el("tib_cw_spark_" + w);
+
+            if (slots.length < windowSize) {
+                B._txt("tib_cw_start_" + w, "--:--");
+                B._txt("tib_cw_end_"   + w, "--:--");
+                B._txt("tib_cw_avg_"   + w, "Keine Daten");
+                B._txt("tib_cw_info_"  + w, "-- · " + amountHours + " Stunden");
+                if (sparkEl) sparkEl.innerHTML = "";
                 return;
             }
 
-            var prices = all.map(function (p) { return parseFloat(p.total) || 0; });
+            // Sliding window: find cheapest block
+            var bestSum = Infinity, bestIdx = 0;
+            for (var i = 0; i <= slots.length - windowSize; i++) {
+                var sum = 0;
+                for (var j = i; j < i + windowSize; j++) sum += parseFloat(slots[j].total) || 0;
+                if (sum < bestSum) { bestSum = sum; bestIdx = i; }
+            }
+
+            var winSlots = slots.slice(bestIdx, bestIdx + windowSize);
+            var avgPrice = bestSum / windowSize;
+
+            // End time = start of last window slot + one slot duration
+            var endDt;
+            try {
+                endDt = new Date(new Date(winSlots[winSlots.length - 1].startsAt).getTime() + slotMin * 60000);
+            } catch (e) { endDt = null; }
+
+            B._txt("tib_cw_start_" + w, fmtTime(winSlots[0].startsAt));
+            B._txt("tib_cw_end_"   + w, endDt ? fmtTime(endDt.toISOString()) : "--:--");
+
+            var midLevel = (winSlots[Math.floor(windowSize / 2)] || {}).level || "CHEAP";
+            var avgCol   = slotCol(midLevel, true);
+            B._txt("tib_cw_avg_" + w, (avgPrice * 100).toFixed(2) + " ct/kWh");
+            B._css("tib_cw_avg_" + w, "color", avgCol);
+
+            // Info line: day label
+            var dayStr = "Heute";
+            if (winSlots[0].startsAt) {
+                try {
+                    if (new Date(winSlots[0].startsAt).toDateString() !== now.toDateString()) dayStr = "Morgen";
+                } catch (e) {}
+            }
+            B._txt("tib_cw_info_" + w, dayStr + " · " + amountHours + " Stunden");
+
+            // Build index set of window positions in allSlots
+            var winSet = {};
+            var winStart = winSlots[0].startsAt;
+            var winEnd   = endDt ? endDt.getTime() : 0;
+            for (var k = 0; k < allSlots.length; k++) {
+                try {
+                    var t = new Date(allSlots[k].startsAt).getTime();
+                    if (winStart && t >= new Date(winStart).getTime() && t < winEnd) winSet[k] = true;
+                } catch (e) {}
+            }
+
+            // Sparkline SVG over allSlots
+            if (!sparkEl) return;
+            var svgW   = 280, svgH = 90;
+            var n      = allSlots.length;
+            var barW   = n > 0 ? svgW / n : svgW;
+            var padB   = 14, padT = 6;
+            var availH = svgH - padT - padB;
+            var prices = allSlots.map(function (p) { return parseFloat(p.total) || 0; });
             var maxP   = Math.max.apply(null, prices);
             var minP   = Math.min.apply(null, prices);
             var range  = (maxP - minP) || 0.001;
 
-            var now     = new Date();
-            var nowHour = now.getHours();
-            var nowDate = now.toDateString();
-
-            var svgW = 360, svgH = 120;
-            var barW = svgW / all.length;
-            var padT = 14, padB = 18;
-            var availH = svgH - padT - padB;
-
-            var tc  = dark ? "rgba(255,255,255,.45)" : "rgba(0,0,0,.35)";
-            var lc  = dark ? "rgba(255,255,255,.18)" : "rgba(0,0,0,.12)";
-
             var svg = '<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">';
 
-            for (var i = 0; i < all.length; i++) {
-                var p     = all[i];
-                var pv    = parseFloat(p.total) || 0;
-                var level = p.level || "NORMAL";
-                var col   = B._levelColor(level);
-                var bh    = Math.max(3, Math.round(((pv - minP) / range) * availH));
-                var x     = i * barW;
-                var y     = svgH - padB - bh;
-
-                var isCurrent = false;
-                if (p.startsAt) {
-                    try {
-                        var sa = new Date(p.startsAt);
-                        if (sa.toDateString() === nowDate && sa.getHours() === nowHour) isCurrent = true;
-                    } catch (e) {}
-                }
-
-                svg += '<rect x="' + (x + 1) + '" y="' + y + '" width="' + (barW - 2) + '" height="' + bh +
-                       '" fill="' + col + '" rx="1.5" opacity="' + (isCurrent ? "1" : "0.72") + '"/>';
-                if (isCurrent) {
-                    svg += '<rect x="' + (x + 1) + '" y="' + y + '" width="' + (barW - 2) + '" height="' + bh +
-                           '" fill="none" stroke="#fff" stroke-width="1.5" rx="1.5" opacity="0.9"/>';
-                }
-
-                var h = i % 24;
+            for (var i = 0; i < allSlots.length; i++) {
+                var p   = allSlots[i];
+                var pv  = parseFloat(p.total) || 0;
+                var inW = !!winSet[i];
+                var col = slotCol(p.level, inW);
+                var bh  = Math.max(2, Math.round(((pv - minP) / range) * availH));
+                var x   = i * barW;
+                var y   = svgH - padB - bh;
+                svg += '<rect x="' + (x + 0.5) + '" y="' + y + '" width="' + Math.max(1, barW - 1) + '" height="' + bh +
+                       '" fill="' + col + '" rx="1" opacity="' + (inW ? "1" : "0.65") + '"/>';
+                var h = 0;
                 if (p.startsAt) { try { h = new Date(p.startsAt).getHours(); } catch (e) {} }
-                if (h % 4 === 0) {
-                    svg += '<text x="' + (x + barW / 2) + '" y="' + (svgH - 3) +
+                if (h % 6 === 0) {
+                    svg += '<text x="' + (x + barW / 2) + '" y="' + (svgH - 2) +
                            '" text-anchor="middle" font-size="7" fill="' + tc + '">' + h + '</text>';
                 }
             }
 
-            // Trennlinie Heute/Morgen
-            if (today.length > 0 && tomorrow.length > 0) {
-                var sepX = today.length * barW;
+            // Today/tomorrow separator
+            if (showTomorrow && todayLen > 0 && tomorrow.length > 0) {
+                var sepX = todayLen * barW;
                 svg += '<line x1="' + sepX + '" y1="' + padT + '" x2="' + sepX + '" y2="' + (svgH - padB) +
                        '" stroke="' + lc + '" stroke-width="1" stroke-dasharray="3,2"/>';
-                svg += '<text x="' + (today.length * barW / 2) + '" y="' + (padT - 2) +
-                       '" text-anchor="middle" font-size="6.5" fill="' + lc + '">Heute</text>';
-                svg += '<text x="' + (today.length * barW + tomorrow.length * barW / 2) + '" y="' + (padT - 2) +
-                       '" text-anchor="middle" font-size="6.5" fill="' + lc + '">Morgen</text>';
+                svg += '<text x="' + (todayLen * barW / 2) + '" y="' + (padT + 6) +
+                       '" text-anchor="middle" font-size="6" fill="' + lc + '">Heute</text>';
+                svg += '<text x="' + (todayLen * barW + tomorrow.length * barW / 2) + '" y="' + (padT + 6) +
+                       '" text-anchor="middle" font-size="6" fill="' + lc + '">Morgen</text>';
             }
 
             svg += '</svg>';
-            barsEl.innerHTML = svg;
-
-            if (infoEl) {
-                infoEl.textContent = "Min: " + (minP * 100).toFixed(2) + "  ·  Max: " + (maxP * 100).toFixed(2) + " ct/kWh";
-            }
+            sparkEl.innerHTML = svg;
         }
 
-        renderBars();
-        B._subscribe(w, data, ["oid_today", "oid_tomorrow"], renderBars);
+        renderWindow();
+        var oidList = ["oid_prices_today"];
+        if (showTomorrow) oidList.push("oid_prices_tomorrow");
+        B._subscribe(w, data, oidList, renderWindow);
     },
 
     // ── Widget 3: Tibber Live Verbrauch ─────────────────────────────────────

@@ -2,7 +2,7 @@
     ioBroker.vis vis-2-widgets-tibberlink Widget-Set
     4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.3.1"
+    version: "0.3.2"
     Copyright 2026 ssbingo s.sternitzke@online.de
 -->
 <link rel="stylesheet" href="widgets/vis-2-widgets-tibberlink/css/style.css" />
@@ -30,22 +30,22 @@
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     WIDGET 2 – Tibber Preisdiagramm
-     Zeigt die Stundenpreise von heute (und morgen falls verfügbar) als
-     farbiges Balkendiagramm. Die aktuelle Stunde ist hervorgehoben.
-     Farben entsprechen der tibber-Preisstufe (VERY_CHEAP..VERY_EXPENSIVE).
+     WIDGET 2 – Tibber Günstigstes Zeitfenster (TibberCheapestWindow)
+     Findet per Sliding-Window-Algorithmus das günstigste N-Stunden-Fenster
+     aus den heutigen (und optional morgigen) Preisdaten.
+     Zeigt Start, Ende, Durchschnittspreis und einen Sparkline-Graphen.
      ═══════════════════════════════════════════════════════════════════════ -->
-<script id="tplVis-2-widgets-tibberlinkPriceChart"
+<script id="tplVis-2-widgets-tibberlinkCheapestWindow"
         type="text/ejs"
         class="vis-tpl"
         data-vis-set="vis-2-widgets-tibberlink"
-        data-vis-name="Tibber Preisdiagramm"
+        data-vis-name="Tibber Günstigstes Fenster"
         data-vis-type="val"
-        data-vis-attrs="group.OIDs;oid_today[tibberlink.0.Homes.YourHomeId.PricesToday.json]/id;oid_tomorrow[tibberlink.0.Homes.YourHomeId.PricesTomorrow.json]/id;group.Darstellung;tib_title[Tibber Preisübersicht]/text;tib_darkmode[true]/checkbox"
-        data-vis-style="width:360px;height:200px;position:static;"
-        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:12px;width:340px;height:180px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px;flex-shrink:0">&#9889; Tibber Preisübersicht</div><div style="flex:1;display:flex;align-items:flex-end;gap:1px;padding:0 2px"><div style="flex:1;background:#27ae60;height:35%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:28%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:25%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:45%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:55%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#e67e22;height:70%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#e74c3c;height:100%;border-radius:2px 2px 0 0;opacity:.8;outline:2px solid #fff"></div><div style="flex:1;background:#e67e22;height:78%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#f39c12;height:60%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#27ae60;height:42%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#27ae60;height:38%;border-radius:2px 2px 0 0;opacity:.8"></div><div style="flex:1;background:#1abc9c;height:30%;border-radius:2px 2px 0 0;opacity:.8"></div></div><div style="font-size:.55rem;opacity:.5;text-align:center;margin-top:5px;flex-shrink:0">Min: 8.50  ·  Max: 28.30 ct/kWh</div></div>'>
-    <div class="vis-widget <%== this.data.attr('class') %>" style="width:360px;height:200px;" id="<%= this.data.attr('wid') %>"><%
-        vis.binds['vis-2-widgets-tibberlink'].createPriceChart(this.data.wid, this.view, this.data, this.style);
+        data-vis-attrs="group.OIDs;oid_prices_today[tibberlink.0.Homes.YourHomeId.PricesToday.json]/id;oid_prices_tomorrow[tibberlink.0.Homes.YourHomeId.PricesTomorrow.json]/id;group.Darstellung;tib_title[Günstigstes Fenster]/text;tib_darkmode[true]/checkbox;amount_hours[3]/number;future_only[true]/checkbox;show_tomorrow[true]/checkbox"
+        data-vis-style="width:280px;height:260px;position:static;"
+        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:6px;flex-shrink:0">&#9889; Günstigstes Fenster</div><div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;flex-shrink:0"><div style="text-align:center"><div style="font-size:.5rem;opacity:.6;margin-bottom:1px">Start</div><div style="font-size:1.5rem;font-weight:700;color:#27ae60">02:00</div></div><div style="font-size:1.1rem;opacity:.45">&#8594;</div><div style="text-align:center"><div style="font-size:.5rem;opacity:.6;margin-bottom:1px">Ende</div><div style="font-size:1.5rem;font-weight:700;color:#27ae60">05:00</div></div></div><div style="font-size:.9rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:8px;flex-shrink:0">21.4 ct/kWh</div><div style="flex:1;display:flex;align-items:flex-end;gap:1px;padding:0 1px"><div style="flex:1;background:#7f8c8d;height:55%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#7f8c8d;height:48%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#27ae60;height:28%;border-radius:1px 1px 0 0"></div><div style="flex:1;background:#27ae60;height:22%;border-radius:1px 1px 0 0"></div><div style="flex:1;background:#27ae60;height:25%;border-radius:1px 1px 0 0"></div><div style="flex:1;background:#7f8c8d;height:42%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#f39c12;height:65%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#e74c3c;height:90%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#f39c12;height:72%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#7f8c8d;height:50%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#52d68a;height:32%;border-radius:1px 1px 0 0;opacity:.65"></div><div style="flex:1;background:#1abc9c;height:26%;border-radius:1px 1px 0 0;opacity:.65"></div></div><div style="font-size:.55rem;text-align:center;opacity:.55;margin-top:4px;flex-shrink:0">Heute · 3 Stunden</div></div>'>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:280px;height:260px;" id="<%= this.data.attr('wid') %>"><%
+        vis.binds['vis-2-widgets-tibberlink'].createCheapestWindow(this.data.wid, this.view, this.data, this.style);
     %></div>
 </script>
 

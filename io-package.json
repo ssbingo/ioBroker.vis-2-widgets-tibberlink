@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "news": {
       "0.3.1": {
         "en": "Widget 1: rename oid_price→oid_total, add oid_startsAt, show_breakdown and currency options",
