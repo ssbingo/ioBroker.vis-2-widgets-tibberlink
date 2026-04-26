@@ -15,7 +15,7 @@
         "pl": "Widget 2: wykres cen zastąpiony przez TibberCheapestWindow (najtańsze okno przesuwne N godzin ze sparkline)",
         "uk": "Віджет 2: графік цін замінено на TibberCheapestWindow (ковзне вікно найдешевших N годин зі sparkline)",
         "zh-cn": "小部件2：价格图表替换为TibberCheapestWindow（最便宜N小时滑动窗口含走势图）"
-      },
+      }
     },
     "titleLang": {
       "en": "Vis 2 Widgets Tibberlink",
