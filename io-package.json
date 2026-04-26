@@ -3,6 +3,19 @@
     "name": "vis-2-widgets-tibberlink",
     "version": "0.3.2",
     "news": {
+      "0.3.2": {
+        "en": "Widget 2: replace price chart with TibberCheapestWindow (cheapest N-hour sliding window with sparkline)",
+        "de": "Widget 2: Preisdiagramm durch TibberCheapestWindow ersetzt (günstigstes N-Stunden-Fenster mit Sparkline)",
+        "ru": "Виджет 2: диаграмма цен заменена на TibberCheapestWindow (скользящее окно наименьшей стоимости с графиком)",
+        "pt": "Widget 2: gráfico de preços substituído por TibberCheapestWindow (janela deslizante de N horas mais barata com sparkline)",
+        "nl": "Widget 2: prijsgrafiek vervangen door TibberCheapestWindow (goedkoopste N-uursvenster met sparkline)",
+        "fr": "Widget 2: graphique des prix remplacé par TibberCheapestWindow (fenêtre glissante N heures la moins chère avec sparkline)",
+        "it": "Widget 2: grafico prezzi sostituito con TibberCheapestWindow (finestra scorrevole N ore più economica con sparkline)",
+        "es": "Widget 2: gráfico de precios reemplazado por TibberCheapestWindow (ventana deslizante de N horas más barata con sparkline)",
+        "pl": "Widget 2: wykres cen zastąpiony przez TibberCheapestWindow (najtańsze okno przesuwne N godzin ze sparkline)",
+        "uk": "Віджет 2: графік цін замінено на TibberCheapestWindow (ковзне вікно найдешевших N годин зі sparkline)",
+        "zh-cn": "小部件2：价格图表替换为TibberCheapestWindow（最便宜N小时滑动窗口含走势图）"
+      },
       "0.3.1": {
         "en": "Widget 1: rename oid_price→oid_total, add oid_startsAt, show_breakdown and currency options",
         "de": "Widget 1: oid_price→oid_total umbenannt, oid_startsAt, show_breakdown und currency ergänzt",
@@ -88,10 +101,8 @@
     "keywords": [
       "tibberlink",
       "tibber",
-      "vis-2",
-      "iobroker"
+      "vis-2"
     ],
-    "license": "MIT",
     "licenseInformation": {
       "type": "free",
       "license": "MIT"

@@ -13,7 +13,8 @@
     "tibberlink",
     "tibber",
     "vis-2",
-    "iobroker"
+    "iobroker",
+    "ioBroker"
   ],
   "repository": {
     "type": "git",
