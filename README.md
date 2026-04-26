@@ -24,11 +24,7 @@ Widgets for Tibberlink
 ### 0.3.0 (2026-04-24)
 * (ssbingo) New widget: monthly electricity cost with consumption, avg. price and projection
 
-### 0.2.0 (2026-04-20)
-* (ssbingo) Fix widget discovery: add license field, remove vis-1 restart trigger
-
-### 0.1.0 (2026-04-18)
-* (ssbingo) First release: price card, price chart and live power widgets
+Older changelog entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 MIT License
