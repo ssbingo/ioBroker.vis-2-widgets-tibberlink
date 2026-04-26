@@ -77,9 +77,6 @@
     "readme": "https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/README.md",
     "loglevel": "info",
     "tier": 3,
-    "restartAdapters": [
-      "vis-2"
-    ],
     "onlyWWW": true,
     "singleton": true,
     "type": "visualization-widgets",
