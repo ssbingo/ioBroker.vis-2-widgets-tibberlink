@@ -16,58 +16,6 @@
         "uk": "Віджет 2: графік цін замінено на TibberCheapestWindow (ковзне вікно найдешевших N годин зі sparkline)",
         "zh-cn": "小部件2：价格图表替换为TibberCheapestWindow（最便宜N小时滑动窗口含走势图）"
       },
-      "0.3.1": {
-        "en": "Widget 1: rename oid_price→oid_total, add oid_startsAt, show_breakdown and currency options",
-        "de": "Widget 1: oid_price→oid_total umbenannt, oid_startsAt, show_breakdown und currency ergänzt",
-        "ru": "Виджет 1: переименован oid_price→oid_total, добавлены oid_startsAt, show_breakdown и currency",
-        "pt": "Widget 1: oid_price→oid_total renomeado, adicionados oid_startsAt, show_breakdown e currency",
-        "nl": "Widget 1: oid_price→oid_total hernoemd, oid_startsAt, show_breakdown en currency toegevoegd",
-        "fr": "Widget 1: oid_price renommé en oid_total, ajout de oid_startsAt, show_breakdown et currency",
-        "it": "Widget 1: rinominato oid_price→oid_total, aggiunti oid_startsAt, show_breakdown e currency",
-        "es": "Widget 1: oid_price→oid_total renombrado, añadidos oid_startsAt, show_breakdown y currency",
-        "pl": "Widget 1: zmieniono oid_price→oid_total, dodano oid_startsAt, show_breakdown i currency",
-        "uk": "Віджет 1: перейменовано oid_price→oid_total, додано oid_startsAt, show_breakdown та currency",
-        "zh-cn": "小部件1：oid_price重命名为oid_total，添加oid_startsAt、show_breakdown和currency选项"
-      },
-      "0.3.0": {
-        "en": "New widget: monthly electricity cost with consumption, avg. price and projection",
-        "de": "Neues Widget: monatliche Stromkosten mit Verbrauch, Durchschnittspreis und Prognose",
-        "ru": "Новый виджет: ежемесячные расходы на электроэнергию с расходом, средней ценой и прогнозом",
-        "pt": "Novo widget: custo mensal de eletricidade com consumo, preço médio e projeção",
-        "nl": "Nieuw widget: maandelijkse elektriciteitskosten met verbruik, gemiddelde prijs en prognose",
-        "fr": "Nouveau widget: coût mensuel de l'électricité avec consommation, prix moyen et projection",
-        "it": "Nuovo widget: costo mensile dell'elettricità con consumo, prezzo medio e proiezione",
-        "es": "Nuevo widget: costo mensual de electricidad con consumo, precio promedio y proyección",
-        "pl": "Nowy widżet: miesięczny koszt energii elektrycznej z zużyciem, średnią ceną i prognozą",
-        "uk": "Новий віджет: місячні витрати на електроенергію зі споживанням, середньою ціною та прогнозом",
-        "zh-cn": "新小部件：月度电费（含消耗量、平均价格和预测）"
-      },
-      "0.2.0": {
-        "en": "Fix widget discovery: add license field, remove vis-1 restart trigger",
-        "de": "Widget-Erkennung korrigiert: Lizenzfeld ergänzt, vis-1 Neustart-Trigger entfernt",
-        "ru": "Исправлено обнаружение виджетов: добавлено поле лицензии, удалён триггер перезапуска vis-1",
-        "pt": "Correção de descoberta de widget: campo de licença adicionado, acionador de reinicialização vis-1 removido",
-        "nl": "Widget-detectie gecorrigeerd: licentieveld toegevoegd, vis-1 herstart-trigger verwijderd",
-        "fr": "Correction de la détection de widget: champ de licence ajouté, déclencheur de redémarrage vis-1 supprimé",
-        "it": "Correzione rilevamento widget: campo licenza aggiunto, trigger riavvio vis-1 rimosso",
-        "es": "Corrección de detección de widget: campo de licencia añadido, eliminador de reinicio vis-1 eliminado",
-        "pl": "Naprawiono wykrywanie widżetów: dodano pole licencji, usunięto wyzwalacz restartu vis-1",
-        "uk": "Виправлено виявлення віджетів: додано поле ліцензії, видалено тригер перезапуску vis-1",
-        "zh-cn": "修复小部件发现：添加许可证字段，删除 vis-1 重启触发器"
-      },
-      "0.1.0": {
-        "en": "First release: price card, price chart and live power widgets",
-        "de": "Erstveröffentlichung: Preiskarte, Preisdiagramm und Live-Verbrauch Widgets",
-        "ru": "Первый выпуск: виджеты текущей цены, графика цен и текущего потребления",
-        "pt": "Primeiro lançamento: widgets de preço atual, gráfico de preços e consumo ao vivo",
-        "nl": "Eerste versie: widgets voor actuele prijs, prijsdiagram en live verbruik",
-        "fr": "Première version: widgets prix actuel, graphique des prix et consommation en direct",
-        "it": "Prima versione: widget prezzo attuale, grafico prezzi e consumo in tempo reale",
-        "es": "Primera versión: widgets de precio actual, gráfico de precios y consumo en tiempo real",
-        "pl": "Pierwsze wydanie: widżety aktualnej ceny, wykresu cen i zużycia na żywo",
-        "uk": "Перший випуск: віджети поточної ціни, графіка цін та живого споживання",
-        "zh-cn": "首次发布：当前价格、价格图表和实时功耗小部件"
-      }
     },
     "titleLang": {
       "en": "Vis 2 Widgets Tibberlink",
