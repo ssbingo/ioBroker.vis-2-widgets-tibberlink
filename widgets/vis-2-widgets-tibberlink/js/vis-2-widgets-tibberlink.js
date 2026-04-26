@@ -427,6 +427,7 @@ vis.binds["vis-2-widgets-tibberlink"] = {
 
             var svg = '<svg viewBox="0 0 ' + svgW + ' ' + svgH + '" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">';
 
+            var labeledHours = {};
             for (var i = 0; i < allSlots.length; i++) {
                 var p   = allSlots[i];
                 var pv  = parseFloat(p.total) || 0;
@@ -437,11 +438,13 @@ vis.binds["vis-2-widgets-tibberlink"] = {
                 var y   = svgH - padB - bh;
                 svg += '<rect x="' + (x + 0.5) + '" y="' + y + '" width="' + Math.max(1, barW - 1) + '" height="' + bh +
                        '" fill="' + col + '" rx="1" opacity="' + (inW ? "1" : "0.65") + '"/>';
-                var h = 0;
-                if (p.startsAt) { try { h = new Date(p.startsAt).getHours(); } catch (e) {} }
-                if (h % 6 === 0) {
-                    svg += '<text x="' + (x + barW / 2) + '" y="' + (svgH - 2) +
-                           '" text-anchor="middle" font-size="7" fill="' + tc + '">' + h + '</text>';
+                var h = 0, m = 0;
+                if (p.startsAt) { try { var dt2 = new Date(p.startsAt); h = dt2.getHours(); m = dt2.getMinutes(); } catch (e) {} }
+                if (h % 6 === 0 && m === 0 && !labeledHours[h]) {
+                    labeledHours[h] = true;
+                    svg += '<text x="' + x + '" y="' + (svgH - 2) +
+                           '" text-anchor="start" font-size="7" fill="' + tc + '">' +
+                           ('0' + h).slice(-2) + ':00</text>';
                 }
             }
 
