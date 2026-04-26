@@ -100,6 +100,20 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 
 Older changelog entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
+## Documentation
+
+- 🇬🇧 English — this file
+- 🇩🇪 [Deutsch](docs/de/README.md)
+- 🇷🇺 [Русский](docs/ru/README.md)
+- 🇳🇱 [Nederlands](docs/nl/README.md)
+- 🇫🇷 [Français](docs/fr/README.md)
+- 🇮🇹 [Italiano](docs/it/README.md)
+- 🇪🇸 [Español](docs/es/README.md)
+- 🇵🇱 [Polski](docs/pl/README.md)
+- 🇵🇹 [Português](docs/pt/README.md)
+- 🇺🇦 [Українська](docs/uk/README.md)
+- 🇨🇳 [简体中文](docs/zh-cn/README.md)
+
 ## License
 MIT License
 
