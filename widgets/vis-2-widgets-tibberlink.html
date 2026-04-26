@@ -1,8 +1,8 @@
 <!--
     ioBroker.vis vis-2-widgets-tibberlink Widget-Set
-    3 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch
+    4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.2.0"
+    version: "0.3.0"
     Copyright 2026 ssbingo s.sternitzke@online.de
 -->
 <link rel="stylesheet" href="widgets/vis-2-widgets-tibberlink/css/style.css" />
@@ -66,5 +66,26 @@
         data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px;flex-shrink:0">&#9889; Tibber Live</div><div style="font-size:2.6rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:12px;flex-shrink:0">1.842 kW</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;flex-shrink:0"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Min</div><div style="font-size:.82rem;font-weight:700;color:#1abc9c">450 W</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Ø Mittel</div><div style="font-size:.82rem;font-weight:700;color:#3498db">1.10 kW</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Max</div><div style="font-size:.82rem;font-weight:700;color:#e74c3c">3.20 kW</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Verbrauch heute</div><div style="font-size:.88rem;font-weight:700;color:#27ae60">12.456 kWh</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Kosten heute</div><div style="font-size:.88rem;font-weight:700;color:#f39c12">1.87 €</div></div></div></div>'>
     <div class="vis-widget <%== this.data.attr('class') %>" style="width:280px;height:260px;" id="<%= this.data.attr('wid') %>"><%
         vis.binds['vis-2-widgets-tibberlink'].createLivePower(this.data.wid, this.view, this.data, this.style);
+    %></div>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     WIDGET 4 – Tibber Monatskosten
+     Summiert Kosten und Verbrauch aus dem jsonDaily-Datensatz für den
+     laufenden Kalendermonat. Berechnet Durchschnittspreis und Prognose.
+     Voraussetzung: historische Verbrauchsdaten in tibberlink aktiviert.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script id="tplVis-2-widgets-tibberlinkMonthlyCost"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="vis-2-widgets-tibberlink"
+        data-vis-name="Tibber Monatskosten"
+        data-vis-type="val"
+        data-vis-attrs="group.OIDs;oid_jsonDaily[tibberlink.0.Homes.YourHomeId.Consumption.jsonDaily]/id;group.Darstellung;tib_title[Monatskosten]/text;tib_darkmode[true]/checkbox;currency_symbol[€]/text;show_base_fee[false]/checkbox;base_fee_per_month[0]/number"
+        data-vis-style="width:280px;height:260px;position:static;"
+        data-vis-prev='<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:6px;flex-shrink:0">&#9889; Monatskosten</div><div style="font-size:2.4rem;font-weight:700;text-align:center;color:#f39c12;margin-bottom:2px;flex-shrink:0">24.87 &#8364;</div><div style="font-size:.55rem;text-align:center;opacity:.55;margin-bottom:8px;flex-shrink:0">inkl. 8.90 &#8364; Grundgebühr</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;flex-shrink:0"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Verbrauch</div><div style="font-size:.82rem;font-weight:700;color:#3498db">87.3 kWh</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">&#216; Preis</div><div style="font-size:.82rem;font-weight:700;color:#9b59b6">28.5 ct</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Prognose</div><div style="font-size:.82rem;font-weight:700;color:#e67e22">42.0 &#8364;</div></div></div><div style="background:rgba(255,255,255,.1);border-radius:4px;height:6px;overflow:hidden;margin-bottom:5px;flex-shrink:0"><div style="background:#27ae60;height:100%;width:60%;border-radius:4px"></div></div><div style="font-size:.55rem;text-align:center;opacity:.55;flex-shrink:0">18 / 30 Tage</div></div>'>
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:280px;height:260px;" id="<%= this.data.attr('wid') %>"><%
+        vis.binds['vis-2-widgets-tibberlink'].createMonthlyCost(this.data.wid, this.view, this.data, this.style);
     %></div>
 </script>

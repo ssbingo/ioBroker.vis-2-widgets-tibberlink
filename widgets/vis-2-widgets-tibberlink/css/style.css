@@ -1,4 +1,4 @@
-/* ioBroker.vis vis-2-widgets-tibberlink — Widget CSS */
+/* ioBroker.vis vis-2-widgets-tibberlink — Widget CSS — 4 Widgets */
 
 /* ── Gemeinsam ─────────────────────────────────────────────────────────── */
 .tib-w {
@@ -187,4 +187,81 @@
     grid-template-columns: 1fr 1fr;
     gap: 6px;
     flex: 1;
+}
+
+/* ── Widget 4: Monatliche Stromkosten ───────────────────────────────────── */
+.tib-mc-wrap {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e6ef;
+    border-radius: 14px;
+    padding: 14px;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.tib-mc-wrap.light {
+    background: #fff;
+    color: #2c3e50;
+    border: 1px solid #e8eef5;
+}
+.tib-mc-wrap.light .tib-stat-box {
+    background: rgba(0,0,0,.04);
+    border: 1px solid #e8eef5;
+}
+.tib-mc-title {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: .75;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+.tib-mc-big {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2px;
+    flex-shrink: 0;
+    transition: color .4s;
+}
+.tib-mc-base {
+    font-size: .55rem;
+    text-align: center;
+    opacity: .58;
+    margin-bottom: 8px;
+    min-height: .8rem;
+    flex-shrink: 0;
+}
+.tib-mc-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+.tib-mc-progress-wrap {
+    background: rgba(255,255,255,.1);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+}
+.tib-mc-wrap.light .tib-mc-progress-wrap {
+    background: rgba(0,0,0,.08);
+}
+.tib-mc-bar {
+    background: #27ae60;
+    height: 100%;
+    border-radius: 4px;
+    width: 0%;
+    transition: width .6s ease;
+}
+.tib-mc-days {
+    font-size: .55rem;
+    text-align: center;
+    opacity: .55;
+    flex-shrink: 0;
 }

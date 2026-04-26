@@ -1,8 +1,8 @@
 /*
     ioBroker.vis vis-2-widgets-tibberlink — Widget-Set
-    3 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch
+    4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.2.0"
+    version: "0.3.0"
     Copyright 2026 ssbingo s.sternitzke@online.de
 */
 "use strict";
@@ -24,12 +24,16 @@ if (typeof systemDictionary !== "undefined") {
         "oid_cost":       { "en": "Cost Today OID",             "de": "Kosten Heute OID" },
         "oid_minpower":   { "en": "Min Power OID",              "de": "Min Leistung OID" },
         "oid_avgpower":   { "en": "Avg Power OID",              "de": "Ø Leistung OID" },
-        "oid_maxpower":   { "en": "Max Power OID",              "de": "Max Leistung OID" }
+        "oid_maxpower":      { "en": "Max Power OID",        "de": "Max Leistung OID" },
+        "oid_jsonDaily":     { "en": "Daily JSON OID",        "de": "Tagesverbrauch JSON OID" },
+        "currency_symbol":   { "en": "Currency symbol",       "de": "Währungssymbol" },
+        "show_base_fee":     { "en": "Include base fee",      "de": "Grundgebühr einbeziehen" },
+        "base_fee_per_month":{ "en": "Monthly base fee",      "de": "Monatliche Grundgebühr" }
     });
 }
 
 vis.binds["vis-2-widgets-tibberlink"] = {
-    version: "0.2.0",
+    version: "0.3.0",
 
     showVersion: function () {
         if (vis.binds["vis-2-widgets-tibberlink"].version) {
@@ -414,6 +418,111 @@ vis.binds["vis-2-widgets-tibberlink"] = {
         B._subscribe(w, data,
             ["oid_power", "oid_minpower", "oid_avgpower", "oid_maxpower", "oid_consumption", "oid_cost"],
             update);
+    },
+
+    // ── Widget 4: Monatliche Stromkosten ────────────────────────────────────
+    createMonthlyCost: function (widgetID, view, data, style) {
+        var B    = vis.binds["vis-2-widgets-tibberlink"];
+        var $div = $("#" + widgetID);
+        if (!$div.length) {
+            return setTimeout(function () { B.createMonthlyCost(widgetID, view, data, style); }, 100);
+        }
+
+        var dark     = B._isDark(data);
+        var title    = data.attr("tib_title")         || "Monatskosten";
+        var currency = data.attr("currency_symbol")   || "€";
+        var showBase = (function (v) {
+            return v === true || v === "true" || v === "1" || v === 1;
+        })(data.attr("show_base_fee"));
+        var baseFee  = parseFloat(data.attr("base_fee_per_month")) || 0;
+        var w        = widgetID;
+        var cls      = dark ? "tib-mc-wrap" : "tib-mc-wrap light";
+
+        $div.html(
+            '<div class="tib-w"><div class="' + cls + '">' +
+            '<div class="tib-mc-title">&#9889; ' + title + '</div>' +
+            '<div id="tib_mc_big_'  + w + '" class="tib-mc-big">-- ' + currency + '</div>' +
+            '<div id="tib_mc_base_' + w + '" class="tib-mc-base">' +
+              (showBase ? 'inkl. ' + baseFee.toFixed(2) + ' ' + currency + ' Grundgebühr' : '') +
+            '</div>' +
+            '<div class="tib-mc-stats">' +
+              '<div class="tib-stat-box">' +
+                '<div class="tib-stat-label">Verbrauch</div>' +
+                '<div id="tib_mc_kwh_'  + w + '" class="tib-stat-val" style="color:#3498db">-- kWh</div>' +
+              '</div>' +
+              '<div class="tib-stat-box">' +
+                '<div class="tib-stat-label">&#216; Preis</div>' +
+                '<div id="tib_mc_avg_'  + w + '" class="tib-stat-val" style="color:#9b59b6">-- ct</div>' +
+              '</div>' +
+              '<div class="tib-stat-box">' +
+                '<div class="tib-stat-label">Prognose</div>' +
+                '<div id="tib_mc_proj_' + w + '" class="tib-stat-val" style="color:#e67e22">-- ' + currency + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="tib-mc-progress-wrap">' +
+              '<div id="tib_mc_bar_'  + w + '" class="tib-mc-bar"></div>' +
+            '</div>' +
+            '<div id="tib_mc_days_' + w + '" class="tib-mc-days">-- / -- Tage</div>' +
+            '</div></div>'
+        );
+        B._applyScale($div, 280);
+
+        function update() {
+            var raw  = B._val(data, "oid_jsonDaily");
+            var rows = [];
+            try { rows = JSON.parse(raw) || []; } catch (e) {}
+
+            var now         = new Date();
+            var thisY       = now.getFullYear();
+            var thisM       = now.getMonth();
+            var today       = now.getDate();
+            var daysInMonth = new Date(thisY, thisM + 1, 0).getDate();
+
+            var totalCost = 0, totalKWh = 0, daysCount = 0;
+            for (var i = 0; i < rows.length; i++) {
+                var r = rows[i];
+                if (!r || !r.from) continue;
+                try {
+                    var dt = new Date(r.from);
+                    if (dt.getFullYear() === thisY && dt.getMonth() === thisM) {
+                        totalCost += parseFloat(r.cost)        || 0;
+                        totalKWh  += parseFloat(r.consumption) || 0;
+                        daysCount++;
+                    }
+                } catch (e) {}
+            }
+
+            var displayCost = totalCost + (showBase ? baseFee : 0);
+            var avgCt       = totalKWh  > 0.001 ? (totalCost / totalKWh) * 100 : null;
+            var projection  = daysCount > 0
+                ? (totalCost / daysCount) * daysInMonth + (showBase ? baseFee : 0)
+                : null;
+
+            var col;
+            if (totalCost < 0.001) {
+                col = "#95a5a6";
+            } else if (projection !== null && today > 0) {
+                var pace = (displayCost / projection) / (today / daysInMonth);
+                col = pace > 1.2 ? "#e74c3c" : pace > 1.05 ? "#f39c12" : "#27ae60";
+            } else {
+                col = "#f39c12";
+            }
+
+            B._txt("tib_mc_big_"  + w, displayCost > 0.001 ? displayCost.toFixed(2) + " " + currency : "-- " + currency);
+            B._css("tib_mc_big_"  + w, "color", col);
+            B._txt("tib_mc_kwh_"  + w, totalKWh  > 0.001  ? totalKWh.toFixed(1)  + " kWh"        : "-- kWh");
+            B._txt("tib_mc_avg_"  + w, avgCt   !== null   ? avgCt.toFixed(2)    + " ct"          : "-- ct");
+            B._txt("tib_mc_proj_" + w, projection !== null ? projection.toFixed(2) + " " + currency : "-- " + currency);
+
+            var pct   = Math.min(100, Math.max(0, (today - 1) / daysInMonth * 100));
+            var barEl = B._el("tib_mc_bar_" + w);
+            if (barEl) barEl.style.width = pct.toFixed(1) + "%";
+
+            B._txt("tib_mc_days_" + w, today + " / " + daysInMonth + " Tage");
+        }
+
+        update();
+        B._subscribe(w, data, ["oid_jsonDaily"], update);
     }
 };
 
