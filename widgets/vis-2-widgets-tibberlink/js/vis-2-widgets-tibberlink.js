@@ -2,7 +2,7 @@
     ioBroker.vis vis-2-widgets-tibberlink — Widget-Set
     4 Widgets: Aktueller Preis · Preisdiagramm · Live Verbrauch · Monatskosten
 
-    version: "0.3.0"
+    version: "0.3.1"
     Copyright 2026 ssbingo s.sternitzke@online.de
 */
 "use strict";
@@ -11,12 +11,15 @@
 
 if (typeof systemDictionary !== "undefined") {
     $.extend(true, systemDictionary, {
-        "tib_title":      { "en": "Title",                      "de": "Titel" },
-        "tib_darkmode":   { "en": "Dark mode",                  "de": "Dunkelmodus" },
-        "oid_price":      { "en": "Current Price OID",          "de": "Aktueller Preis OID" },
-        "oid_energy":     { "en": "Energy Price OID",           "de": "Energieanteil OID" },
-        "oid_tax":        { "en": "Tax OID",                    "de": "Steuer OID" },
-        "oid_level":      { "en": "Price Level OID",            "de": "Preisstufe OID" },
+        "tib_title":       { "en": "Title",                      "de": "Titel" },
+        "tib_darkmode":    { "en": "Dark mode",                  "de": "Dunkelmodus" },
+        "oid_total":       { "en": "Total Price OID",            "de": "Gesamtpreis OID" },
+        "oid_energy":      { "en": "Energy Price OID",           "de": "Energieanteil OID" },
+        "oid_tax":         { "en": "Tax OID",                    "de": "Steuer OID" },
+        "oid_level":       { "en": "Price Level OID",            "de": "Preisstufe OID" },
+        "oid_startsAt":    { "en": "Price slot start OID",       "de": "Preisslot Start OID" },
+        "show_breakdown":  { "en": "Show energy/tax breakdown",  "de": "Aufschlüsselung anzeigen" },
+        "currency":        { "en": "Price unit label",           "de": "Preiseinheit" },
         "oid_today":      { "en": "Today Prices JSON OID",      "de": "Heute Preise JSON OID" },
         "oid_tomorrow":   { "en": "Tomorrow Prices JSON OID",   "de": "Morgen Preise JSON OID" },
         "oid_power":      { "en": "Current Power OID",          "de": "Aktuelle Leistung OID" },
@@ -33,7 +36,7 @@ if (typeof systemDictionary !== "undefined") {
 }
 
 vis.binds["vis-2-widgets-tibberlink"] = {
-    version: "0.3.0",
+    version: "0.3.1",
 
     showVersion: function () {
         if (vis.binds["vis-2-widgets-tibberlink"].version) {
@@ -196,49 +199,71 @@ vis.binds["vis-2-widgets-tibberlink"] = {
             return setTimeout(function () { B.createPriceCard(widgetID, view, data, style); }, 100);
         }
 
-        var dark  = B._isDark(data);
-        var title = data.attr("tib_title") || "Tibber Strompreis";
-        var w     = widgetID;
-        var cls   = dark ? "tib-pc-wrap" : "tib-pc-wrap light";
+        var dark          = B._isDark(data);
+        var title         = data.attr("tib_title") || "Tibber Strompreis";
+        var currency      = data.attr("currency")  || "ct/kWh";
+        var showBreakdown = (function (v) {
+            return v !== false && v !== "false" && v !== "0" && v !== 0;
+        })(data.attr("show_breakdown"));
+        var w   = widgetID;
+        var cls = dark ? "tib-pc-wrap" : "tib-pc-wrap light";
 
         $div.html(
             '<div class="tib-w"><div class="' + cls + '">' +
             '<div class="tib-pc-title">&#9889; ' + title + '</div>' +
-            '<div id="tib_pc_big_' + w + '" class="tib-pc-big">-- ct/kWh</div>' +
+            '<div id="tib_pc_big_' + w + '" class="tib-pc-big">-- ' + currency + '</div>' +
             '<div class="tib-pc-badge-row">' +
               '<span id="tib_pc_badge_' + w + '" class="tib-pc-badge">--</span>' +
+              '<span id="tib_pc_time_'  + w + '" class="tib-pc-time"></span>' +
             '</div>' +
-            '<div class="tib-pc-details">' +
-              '<div class="tib-stat-box">' +
-                '<div class="tib-stat-label">Energieanteil</div>' +
-                '<div id="tib_pc_energy_' + w + '" class="tib-stat-val" style="color:#3498db">-- ct</div>' +
-              '</div>' +
-              '<div class="tib-stat-box">' +
-                '<div class="tib-stat-label">Steuer/Abgaben</div>' +
-                '<div id="tib_pc_tax_' + w + '" class="tib-stat-val" style="color:#9b59b6">-- ct</div>' +
-              '</div>' +
-            '</div>' +
+            (showBreakdown ?
+              '<div class="tib-pc-details">' +
+                '<div class="tib-stat-box">' +
+                  '<div class="tib-stat-label">Energieanteil</div>' +
+                  '<div id="tib_pc_energy_' + w + '" class="tib-stat-val" style="color:#3498db">-- ct</div>' +
+                '</div>' +
+                '<div class="tib-stat-box">' +
+                  '<div class="tib-stat-label">Steuer/Abgaben</div>' +
+                  '<div id="tib_pc_tax_' + w + '" class="tib-stat-val" style="color:#9b59b6">-- ct</div>' +
+                '</div>' +
+              '</div>'
+            : '') +
             '</div></div>'
         );
         B._applyScale($div, 280);
 
         function update() {
-            var price  = B._val(data, "oid_price");
+            var price  = B._val(data, "oid_total");
             var energy = B._val(data, "oid_energy");
             var tax    = B._val(data, "oid_tax");
             var level  = B._val(data, "oid_level") || "";
+            var sa     = B._val(data, "oid_startsAt");
             var col    = B._levelColor(level);
 
-            B._txt("tib_pc_big_"   + w, B._fmtCt(price));
+            var pv = parseFloat(price);
+            B._txt("tib_pc_big_"   + w, isNaN(pv) ? "-- " + currency : (pv * 100).toFixed(2) + " " + currency);
             B._css("tib_pc_big_"   + w, "color", col);
             B._txt("tib_pc_badge_" + w, B._levelText(level));
             B._css("tib_pc_badge_" + w, "background", col);
-            B._txt("tib_pc_energy_"+ w, B._fmtCtShort(energy));
-            B._txt("tib_pc_tax_"   + w, B._fmtCtShort(tax));
+
+            var timeStr = "";
+            if (sa) {
+                try {
+                    var dt = new Date(sa);
+                    timeStr = ("0" + dt.getHours()).slice(-2) + ":" + ("0" + dt.getMinutes()).slice(-2) + " Uhr";
+                } catch (e) {}
+            }
+            B._txt("tib_pc_time_" + w, timeStr);
+
+            if (showBreakdown) {
+                var ev = parseFloat(energy), tv = parseFloat(tax);
+                B._txt("tib_pc_energy_" + w, isNaN(ev) ? "-- ct" : (ev * 100).toFixed(2) + " ct");
+                B._txt("tib_pc_tax_"    + w, isNaN(tv) ? "-- ct" : (tv * 100).toFixed(2) + " ct");
+            }
         }
 
         update();
-        B._subscribe(w, data, ["oid_price", "oid_energy", "oid_tax", "oid_level"], update);
+        B._subscribe(w, data, ["oid_total", "oid_energy", "oid_tax", "oid_level", "oid_startsAt"], update);
     },
 
     // ── Widget 2: Tibber Preisdiagramm ──────────────────────────────────────

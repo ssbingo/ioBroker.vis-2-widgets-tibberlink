@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "news": {
+      "0.3.1": {
+        "en": "Widget 1: rename oid_price→oid_total, add oid_startsAt, show_breakdown and currency options",
+        "de": "Widget 1: oid_price→oid_total umbenannt, oid_startsAt, show_breakdown und currency ergänzt",
+        "ru": "Виджет 1: переименован oid_price→oid_total, добавлены oid_startsAt, show_breakdown и currency",
+        "pt": "Widget 1: oid_price→oid_total renomeado, adicionados oid_startsAt, show_breakdown e currency",
+        "nl": "Widget 1: oid_price→oid_total hernoemd, oid_startsAt, show_breakdown en currency toegevoegd",
+        "fr": "Widget 1: oid_price renommé en oid_total, ajout de oid_startsAt, show_breakdown et currency",
+        "it": "Widget 1: rinominato oid_price→oid_total, aggiunti oid_startsAt, show_breakdown e currency",
+        "es": "Widget 1: oid_price→oid_total renombrado, añadidos oid_startsAt, show_breakdown y currency",
+        "pl": "Widget 1: zmieniono oid_price→oid_total, dodano oid_startsAt, show_breakdown i currency",
+        "uk": "Віджет 1: перейменовано oid_price→oid_total, додано oid_startsAt, show_breakdown та currency",
+        "zh-cn": "小部件1：oid_price重命名为oid_total，添加oid_startsAt、show_breakdown和currency选项"
+      },
       "0.3.0": {
         "en": "New widget: monthly electricity cost with consumption, avg. price and projection",
         "de": "Neues Widget: monatliche Stromkosten mit Verbrauch, Durchschnittspreis und Prognose",
