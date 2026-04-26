@@ -12,7 +12,19 @@
 
 ## vis-2-widgets-tibberlink adapter for ioBroker
 
-Widgets for Tibberlink
+VIS-2 widgets for visualizing Tibber dynamic electricity tariff data: current price, cheapest time window and monthly cost.
+
+More information about Tibber and its dynamic tariffs: <https://tibber.com/>
+
+## Prerequisites
+
+This widget adapter does **not** fetch any data from Tibber itself. It reads states that are created by the data adapter [`iobroker.tibberlink`](https://github.com/hombach/ioBroker.tibberlink). Install and configure `tibberlink` before using these widgets:
+
+1. Install `iobroker.tibberlink` and enter your Tibber API token (from <https://developer.tibber.com/settings/accesstoken>).
+2. In the tibberlink settings, enable **"Historical consumption data retrieval"** and set the daily dataset count to at least 31 (required for Widget 3).
+3. The price widgets (Widget 1 and 2) work automatically once tibberlink is running — no Calculator channels are needed.
+
+Your **Home ID** is the UUID visible in the ioBroker objects tree under `tibberlink.0.Homes.<UUID>`, e.g. `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## Changelog
 ### 0.3.2 (2026-04-26)
