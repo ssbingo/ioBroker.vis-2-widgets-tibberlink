@@ -1,6 +1,6 @@
 {
   "name": "iobroker.vis-2-widgets-tibberlink",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Widgets for Tibberlink",
   "author": {
     "name": "ssbingo",
@@ -31,16 +31,15 @@
     "@iobroker/adapter-dev": "^1.5.0",
     "@iobroker/testing": "^5.2.2"
   },
-  "main": "widgets/vis-2-widgets-tibberlink.html",
   "files": [
     "admin/",
-    "widgets/**/!(tsconfig|tsconfig.*|.eslintrc).json",
-    "widgets/**/*.{html,css,png,svg,jpg,js}",
-    "www/",
+    "widgets/vis-2-widgets-tibberlink/**",
     "io-package.json",
     "LICENSE"
   ],
   "scripts": {
+    "build": "cd src-widgets && npm run build",
+    "prepublishOnly": "npm run build",
     "test:package": "mocha test/package --exit",
     "test": "npm run test:package",
     "translate": "translate-adapter",
