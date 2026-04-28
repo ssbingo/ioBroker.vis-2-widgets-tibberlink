@@ -234,4 +234,5 @@ class TibberCheapestWindow extends VisRxWidget {
     }
 }
 
+export { TibberCheapestWindow };
 export default TibberCheapestWindow;

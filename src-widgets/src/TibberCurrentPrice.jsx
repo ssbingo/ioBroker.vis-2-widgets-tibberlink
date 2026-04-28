@@ -105,4 +105,5 @@ class TibberCurrentPrice extends VisRxWidget {
     }
 }
 
+export { TibberCurrentPrice };
 export default TibberCurrentPrice;

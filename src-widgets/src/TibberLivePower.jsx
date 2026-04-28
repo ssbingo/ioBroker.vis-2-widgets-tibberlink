@@ -105,4 +105,5 @@ class TibberLivePower extends VisRxWidget {
     }
 }
 
+export { TibberLivePower };
 export default TibberLivePower;

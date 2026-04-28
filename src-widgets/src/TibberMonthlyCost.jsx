@@ -137,4 +137,5 @@ class TibberMonthlyCost extends VisRxWidget {
     }
 }
 
+export { TibberMonthlyCost };
 export default TibberMonthlyCost;

@@ -1,4 +1,4 @@
-export default {
+const translations = {
     prefix: 'tib_',
     en: {},
     de: {},
@@ -12,3 +12,6 @@ export default {
     uk: {},
     "zh-cn": {},
 };
+
+export { translations };
+export default translations;
