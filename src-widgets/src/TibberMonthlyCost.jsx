@@ -18,7 +18,7 @@ class TibberMonthlyCost extends window.visRxWidget {
                     name: 'oids',
                     label: 'OIDs',
                     fields: [
-                        { name: 'oid_jsonDaily', type: 'id', label: 'Daily JSON OID' },
+                        { name: 'oid_jsonMonthly', type: 'id', label: 'Monthly JSON OID (resolution:MONTHLY)' },
                     ],
                 },
                 {
@@ -41,45 +41,24 @@ class TibberMonthlyCost extends window.visRxWidget {
     }
 
     _aggregate(rawJson) {
-        let rows = [];
-        try {
-            const parsed = JSON.parse(rawJson);
-            if (Array.isArray(parsed)) rows = parsed;
-        } catch (e) { /* ignore */ }
-
         const now         = new Date();
-        const thisY       = now.getFullYear();
-        const thisM       = now.getMonth();       // 0-indexed
         const today       = now.getDate();
-        const daysInMonth = new Date(thisY, thisM + 1, 0).getDate();
+        const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
 
-        let totalCost = 0, totalKWh = 0, daysCount = 0;
-        for (const r of rows) {
-            if (!r) continue;
-            const from = r.from ?? r.startsAt ?? r.date;
-            if (from == null) continue;
-            try {
-                let rowY, rowM;
-                if (typeof from === 'string' && from.length >= 7) {
-                    // Read YYYY-MM directly from the ISO string — avoids UTC conversion
-                    // so "2024-04-01T00:00:00+02:00" is always treated as April, not March
-                    const dash = from.indexOf('-', 5);
-                    rowY = parseInt(from.slice(0, 4), 10);
-                    rowM = parseInt(from.slice(5, dash > 5 ? dash : 7), 10) - 1; // 0-indexed
-                } else {
-                    const dt = new Date(from);
-                    rowY = dt.getFullYear();
-                    rowM = dt.getMonth();
-                }
-                if (rowY === thisY && rowM === thisM) {
-                    totalCost += parseFloat(r.cost)        || 0;
-                    totalKWh  += parseFloat(r.consumption) || 0;
-                    daysCount++;
-                }
-            } catch (e) { /* ignore */ }
-        }
+        let parsed = null;
+        try { parsed = JSON.parse(rawJson); } catch (e) { /* ignore */ }
+        if (!parsed) return { totalCost: 0, totalKWh: 0, today, daysInMonth };
 
-        return { totalCost, totalKWh, daysCount, today, daysInMonth };
+        // Tibber MONTHLY resolution: single object or array with one (current month) entry
+        const entry = Array.isArray(parsed) ? parsed[parsed.length - 1] : parsed;
+        if (!entry || typeof entry !== 'object') return { totalCost: 0, totalKWh: 0, today, daysInMonth };
+
+        return {
+            totalCost: parseFloat(entry.cost)        || 0,
+            totalKWh:  parseFloat(entry.consumption) || 0,
+            today,
+            daysInMonth,
+        };
     }
 
     renderWidgetBody() {
@@ -91,13 +70,13 @@ class TibberMonthlyCost extends window.visRxWidget {
         const showBase = rxData.show_base_fee === true || rxData.show_base_fee === 'true';
         const baseFee  = parseFloat(rxData.base_fee_per_month) || 0;
 
-        const rawJson = values[rxData.oid_jsonDaily + '.val'];
-        const { totalCost, totalKWh, daysCount, today, daysInMonth } = this._aggregate(rawJson);
+        const rawJson = values[rxData.oid_jsonMonthly + '.val'];
+        const { totalCost, totalKWh, today, daysInMonth } = this._aggregate(rawJson);
 
         const displayCost = totalCost + (showBase ? baseFee : 0);
         const avgCt       = totalKWh > 0.001 ? (totalCost / totalKWh) * 100 : null;
-        const projection  = daysCount > 0
-            ? (totalCost / daysCount) * daysInMonth + (showBase ? baseFee : 0)
+        const projection  = today > 0 && totalCost > 0.001
+            ? (totalCost / today) * daysInMonth + (showBase ? baseFee : 0)
             : null;
 
         let col;
@@ -145,7 +124,7 @@ class TibberMonthlyCost extends window.visRxWidget {
                     <div className="tib-mc-progress-wrap">
                         <div className="tib-mc-bar" style={{ width: `${pct.toFixed(1)}%` }} />
                     </div>
-                    <div className="tib-mc-days">{daysCount} / {daysInMonth} Tage</div>
+                    <div className="tib-mc-days">{today} / {daysInMonth} Tage</div>
                 </div>
             </div>
         );
