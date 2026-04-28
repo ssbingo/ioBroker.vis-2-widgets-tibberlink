@@ -15,15 +15,7 @@ export default defineConfig({
                 './TibberMonthlyCost':    './src/TibberMonthlyCost',
                 './translations':         './src/translations',
             },
-            shared: {
-                // Only share React itself — vis-2 provides it as ESM singleton.
-                // @iobroker/adapter-react-v5 and @iobroker/vis-2-widgets-react-dev
-                // are bundled locally to avoid vis-2 injecting its own incompatible
-                // chunks via init() → importShared → dynamic import failure.
-                react:            { singleton: true, requiredVersion: '*' },
-                'react-dom':      { singleton: true, requiredVersion: '*' },
-                '@mui/material':  { singleton: true, requiredVersion: '*' },
-            },
+            shared: {},
         }),
     ],
     build: {

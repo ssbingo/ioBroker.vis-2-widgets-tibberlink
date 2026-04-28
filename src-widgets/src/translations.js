@@ -1,4 +1,5 @@
 export default {
+    prefix: 'tib_',
     en: {},
     de: {},
     ru: {},
