@@ -44,7 +44,17 @@ class TibberCurrentPrice extends window.visRxWidget {
         return TibberCurrentPrice.getWidgetInfo();
     }
 
-    renderWidgetBody() {
+    renderWidgetBody(e) {
+        // vis-2 only applies position/size to the outer div in edit mode;
+        // in live view we must set it ourselves from this.state.style
+        if (!this.state.editMode && e && this.state.style) {
+            const s = this.state.style;
+            e.style.position = 'absolute';
+            if (s.top    != null) e.style.top    = s.top;
+            if (s.left   != null) e.style.left   = s.left;
+            if (s.width  != null) e.style.width  = s.width;
+            if (s.height != null) e.style.height = s.height;
+        }
         const { rxData, values } = this.state;
 
         const total    = values[rxData.oid_total    + '.val'];

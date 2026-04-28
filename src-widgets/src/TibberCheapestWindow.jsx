@@ -170,7 +170,15 @@ class TibberCheapestWindow extends window.visRxWidget {
         );
     }
 
-    renderWidgetBody() {
+    renderWidgetBody(e) {
+        if (!this.state.editMode && e && this.state.style) {
+            const s = this.state.style;
+            e.style.position = 'absolute';
+            if (s.top    != null) e.style.top    = s.top;
+            if (s.left   != null) e.style.left   = s.left;
+            if (s.width  != null) e.style.width  = s.width;
+            if (s.height != null) e.style.height = s.height;
+        }
         const { rxData, values } = this.state;
         const dark        = rxData.tib_darkmode !== false;
         const title       = rxData.tib_title    || 'Günstigstes Fenster';
