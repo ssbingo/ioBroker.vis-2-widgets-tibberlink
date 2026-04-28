@@ -18,7 +18,7 @@ class TibberMonthlyCost extends window.visRxWidget {
                     name: 'oids',
                     label: 'OIDs',
                     fields: [
-                        { name: 'oid_jsonMonthly', type: 'id', label: 'Monthly JSON OID (resolution:MONTHLY)' },
+                        { name: 'oid_jsonMonthly', type: 'id', label: 'Consumption JSON OID (jsonDaily recommended)' },
                     ],
                 },
                 {
@@ -42,23 +42,40 @@ class TibberMonthlyCost extends window.visRxWidget {
 
     _aggregate(rawJson) {
         const now         = new Date();
+        const thisY       = now.getFullYear();
+        const thisM       = now.getMonth();
         const today       = now.getDate();
-        const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+        const daysInMonth = new Date(thisY, thisM + 1, 0).getDate();
+        const noData      = { totalCost: 0, totalKWh: 0, today, daysInMonth };
 
-        let parsed = null;
-        try { parsed = JSON.parse(rawJson); } catch (e) { /* ignore */ }
-        if (!parsed) return { totalCost: 0, totalKWh: 0, today, daysInMonth };
+        let rows = [];
+        try {
+            const parsed = JSON.parse(rawJson);
+            rows = Array.isArray(parsed) ? parsed : (parsed && typeof parsed === 'object' ? [parsed] : []);
+        } catch (e) { return noData; }
 
-        // Tibber MONTHLY resolution: single object or array with one (current month) entry
-        const entry = Array.isArray(parsed) ? parsed[parsed.length - 1] : parsed;
-        if (!entry || typeof entry !== 'object') return { totalCost: 0, totalKWh: 0, today, daysInMonth };
+        if (rows.length === 0) return noData;
 
-        return {
-            totalCost: parseFloat(entry.cost)        || 0,
-            totalKWh:  parseFloat(entry.consumption) || 0,
-            today,
-            daysInMonth,
-        };
+        const currentRows = rows.filter(r => {
+            const from = r.from ?? r.startsAt ?? r.date;
+            if (!from) return false;
+            if (typeof from === 'string' && from.length >= 7) {
+                const rowY = parseInt(from.slice(0, 4), 10);
+                const rowM = parseInt(from.slice(5, 7), 10) - 1;
+                return rowY === thisY && rowM === thisM;
+            }
+            const dt = new Date(from);
+            return dt.getFullYear() === thisY && dt.getMonth() === thisM;
+        });
+
+        if (currentRows.length === 0) return noData;
+
+        let totalCost = 0, totalKWh = 0;
+        for (const r of currentRows) {
+            totalCost += parseFloat(r.totalCost ?? r.cost) || 0;
+            totalKWh  += parseFloat(r.consumption)         || 0;
+        }
+        return { totalCost, totalKWh, today, daysInMonth };
     }
 
     renderWidgetBody(e) {
