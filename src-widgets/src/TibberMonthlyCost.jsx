@@ -17,20 +17,20 @@ class TibberMonthlyCost extends VisRxWidget {
             visAttrs: [
                 {
                     name: 'oids',
-                    label: { en: 'OIDs', de: 'OIDs' },
+                    label: 'OIDs',
                     fields: [
-                        { name: 'oid_jsonDaily', type: 'id', label: { en: 'Daily JSON OID', de: 'Tagesverbrauch JSON OID' } },
+                        { name: 'oid_jsonDaily', type: 'id', label: 'Daily JSON OID' },
                     ],
                 },
                 {
                     name: 'display',
-                    label: { en: 'Display', de: 'Darstellung' },
+                    label: 'Display',
                     fields: [
-                        { name: 'tib_title',          type: 'text',     label: { en: 'Title',           de: 'Titel' },             default: 'Monatskosten' },
-                        { name: 'tib_darkmode',        type: 'checkbox', label: { en: 'Dark mode',       de: 'Dunkelmodus' },       default: true },
-                        { name: 'currency_symbol',     type: 'text',     label: { en: 'Currency symbol', de: 'Währungssymbol' },    default: '€' },
-                        { name: 'show_base_fee',       type: 'checkbox', label: { en: 'Include base fee',de: 'Grundgebühr' },       default: false },
-                        { name: 'base_fee_per_month',  type: 'number',   label: { en: 'Monthly base fee',de: 'Monatl. Grundgebühr' },default: 0 },
+                        { name: 'tib_title',         type: 'text',     label: 'Title',           default: 'Monatskosten' },
+                        { name: 'tib_darkmode',       type: 'checkbox', label: 'Dark mode',       default: true },
+                        { name: 'currency_symbol',    type: 'text',     label: 'Currency symbol', default: '€' },
+                        { name: 'show_base_fee',      type: 'checkbox', label: 'Include base fee', default: false },
+                        { name: 'base_fee_per_month', type: 'number',   label: 'Monthly base fee', default: 0 },
                     ],
                 },
             ],

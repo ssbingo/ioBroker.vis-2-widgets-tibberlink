@@ -18,28 +18,28 @@ class TibberLivePower extends VisRxWidget {
             visAttrs: [
                 {
                     name: 'oids_live',
-                    label: { en: 'OIDs Live', de: 'OIDs Live' },
+                    label: 'OIDs Live',
                     fields: [
-                        { name: 'oid_power',    type: 'id', label: { en: 'Current Power OID', de: 'Aktuelle Leistung OID' } },
-                        { name: 'oid_minpower', type: 'id', label: { en: 'Min Power OID',     de: 'Min Leistung OID' } },
-                        { name: 'oid_avgpower', type: 'id', label: { en: 'Avg Power OID',     de: 'Ø Leistung OID' } },
-                        { name: 'oid_maxpower', type: 'id', label: { en: 'Max Power OID',     de: 'Max Leistung OID' } },
+                        { name: 'oid_power',    type: 'id', label: 'Current Power OID' },
+                        { name: 'oid_minpower', type: 'id', label: 'Min Power OID' },
+                        { name: 'oid_avgpower', type: 'id', label: 'Avg Power OID' },
+                        { name: 'oid_maxpower', type: 'id', label: 'Max Power OID' },
                     ],
                 },
                 {
                     name: 'oids_daily',
-                    label: { en: 'OIDs Daily', de: 'OIDs Tageswerte' },
+                    label: 'OIDs Daily',
                     fields: [
-                        { name: 'oid_consumption', type: 'id', label: { en: 'Consumption Today OID', de: 'Verbrauch Heute OID' } },
-                        { name: 'oid_cost',        type: 'id', label: { en: 'Cost Today OID',        de: 'Kosten Heute OID' } },
+                        { name: 'oid_consumption', type: 'id', label: 'Consumption Today OID' },
+                        { name: 'oid_cost',        type: 'id', label: 'Cost Today OID' },
                     ],
                 },
                 {
                     name: 'display',
-                    label: { en: 'Display', de: 'Darstellung' },
+                    label: 'Display',
                     fields: [
-                        { name: 'tib_title',    type: 'text',     label: { en: 'Title',     de: 'Titel' },      default: 'Tibber Live' },
-                        { name: 'tib_darkmode', type: 'checkbox', label: { en: 'Dark mode', de: 'Dunkelmodus' }, default: true },
+                        { name: 'tib_title',    type: 'text',     label: 'Title',     default: 'Tibber Live' },
+                        { name: 'tib_darkmode', type: 'checkbox', label: 'Dark mode', default: true },
                     ],
                 },
             ],

@@ -18,21 +18,21 @@ class TibberCheapestWindow extends VisRxWidget {
             visAttrs: [
                 {
                     name: 'oids',
-                    label: { en: 'OIDs', de: 'OIDs' },
+                    label: 'OIDs',
                     fields: [
-                        { name: 'oid_prices_today',    type: 'id', label: { en: 'Today Prices JSON OID',    de: 'Heute Preise JSON OID' } },
-                        { name: 'oid_prices_tomorrow', type: 'id', label: { en: 'Tomorrow Prices JSON OID', de: 'Morgen Preise JSON OID' } },
+                        { name: 'oid_prices_today',    type: 'id', label: 'Today Prices JSON OID' },
+                        { name: 'oid_prices_tomorrow', type: 'id', label: 'Tomorrow Prices JSON OID' },
                     ],
                 },
                 {
                     name: 'display',
-                    label: { en: 'Display', de: 'Darstellung' },
+                    label: 'Display',
                     fields: [
-                        { name: 'tib_title',    type: 'text',     label: { en: 'Title',              de: 'Titel' },              default: 'Günstigstes Fenster' },
-                        { name: 'tib_darkmode', type: 'checkbox', label: { en: 'Dark mode',           de: 'Dunkelmodus' },        default: true },
-                        { name: 'amount_hours', type: 'number',   label: { en: 'Window size (hours)', de: 'Fenstergröße (Std)' }, default: 3 },
-                        { name: 'future_only',  type: 'checkbox', label: { en: 'Future slots only',   de: 'Nur zukünftige Slots' },default: true },
-                        { name: 'show_tomorrow',type: 'checkbox', label: { en: 'Include tomorrow',    de: 'Morgen einbeziehen' }, default: true },
+                        { name: 'tib_title',    type: 'text',     label: 'Title',              default: 'Günstigstes Fenster' },
+                        { name: 'tib_darkmode', type: 'checkbox', label: 'Dark mode',           default: true },
+                        { name: 'amount_hours', type: 'number',   label: 'Window size (hours)', default: 3 },
+                        { name: 'future_only',  type: 'checkbox', label: 'Future slots only',   default: true },
+                        { name: 'show_tomorrow', type: 'checkbox', label: 'Include tomorrow',   default: true },
                     ],
                 },
             ],
