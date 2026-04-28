@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.0 (2026-04-28)
+* (ssbingo) 将所有组件迁移到 React/Module Federation（正确的安装/卸载生命周期，不再修改 widgets.html）
+
 ### 0.3.3 (2026-04-26)
 * (ssbingo) 更新文档
 
