@@ -10,9 +10,9 @@ class TibberLivePower extends VisRxWidget {
         return {
             id: 'tplTibberLivePower',
             visSet: 'vis-2-widgets-tibberlink',
-            visSetLabel: { en: 'Tibberlink', de: 'Tibberlink' },
+            visSetLabel: 'Tibberlink',
             visSetColor: '#27ae60',
-            visName: { en: 'Tibber Live Consumption', de: 'Tibber Live Verbrauch' },
+            visName: 'Tibber Live Consumption',
             visDefaultStyle: { width: 280, height: 260 },
             visPrev: PREV,
             visAttrs: [

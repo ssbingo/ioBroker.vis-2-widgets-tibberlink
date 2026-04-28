@@ -10,9 +10,9 @@ class TibberCheapestWindow extends VisRxWidget {
         return {
             id: 'tplTibberCheapestWindow',
             visSet: 'vis-2-widgets-tibberlink',
-            visSetLabel: { en: 'Tibberlink', de: 'Tibberlink' },
+            visSetLabel: 'Tibberlink',
             visSetColor: '#27ae60',
-            visName: { en: 'Tibber Cheapest Window', de: 'Tibber Günstigstes Fenster' },
+            visName: 'Tibber Cheapest Window',
             visDefaultStyle: { width: 280, height: 260 },
             visPrev: PREV,
             visAttrs: [

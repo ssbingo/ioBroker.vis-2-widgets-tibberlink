@@ -10,9 +10,9 @@ class TibberCurrentPrice extends VisRxWidget {
         return {
             id: 'tplTibberCurrentPrice',
             visSet: 'vis-2-widgets-tibberlink',
-            visSetLabel: { en: 'Tibberlink', de: 'Tibberlink' },
+            visSetLabel: 'Tibberlink',
             visSetColor: '#27ae60',
-            visName: { en: 'Current Tibber Price', de: 'Aktueller Tibber Preis' },
+            visName: 'Current Tibber Price',
             visDefaultStyle: { width: 280, height: 200 },
             visPrev: PREV,
             visAttrs: [

@@ -9,9 +9,9 @@ class TibberMonthlyCost extends VisRxWidget {
         return {
             id: 'tplTibberMonthlyCost',
             visSet: 'vis-2-widgets-tibberlink',
-            visSetLabel: { en: 'Tibberlink', de: 'Tibberlink' },
+            visSetLabel: 'Tibberlink',
             visSetColor: '#27ae60',
-            visName: { en: 'Tibber Monthly Cost', de: 'Tibber Monatskosten' },
+            visName: 'Tibber Monthly Cost',
             visDefaultStyle: { width: 280, height: 260 },
             visPrev: PREV,
             visAttrs: [

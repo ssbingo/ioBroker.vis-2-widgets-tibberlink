@@ -29,6 +29,8 @@ export default defineConfig({
             output: {
                 format: 'esm',
                 minifyInternalExports: true,
+                entryFileNames: '[name].js',
+                chunkFileNames: '[name].js',
             },
         },
     },
