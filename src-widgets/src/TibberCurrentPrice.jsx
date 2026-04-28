@@ -1,11 +1,10 @@
 import React from 'react';
-import { VisRxWidget } from '@iobroker/vis-2-widgets-react-dev';
 import { levelColor, levelText } from './utils';
 import './style.css';
 
 const PREV = '<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:180px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px">&#9889; Tibber Strompreis</div><div style="font-size:2.4rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:8px">12.34 ct/kWh</div><div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px"><span style="background:#27ae60;color:#fff;padding:3px 14px;border-radius:10px;font-size:.7rem;font-weight:600">Günstig</span><span style="font-size:.6rem;opacity:.6">14:00 Uhr</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;flex:1"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Energieanteil</div><div style="font-size:.88rem;font-weight:700;color:#3498db">8.02 ct</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Steuer/Abgaben</div><div style="font-size:.88rem;font-weight:700;color:#9b59b6">4.32 ct</div></div></div></div>';
 
-class TibberCurrentPrice extends VisRxWidget {
+class TibberCurrentPrice extends window.visRxWidget {
     static getWidgetInfo() {
         return {
             id: 'tplTibberCurrentPrice',

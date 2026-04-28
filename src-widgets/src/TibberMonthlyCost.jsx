@@ -1,10 +1,9 @@
 import React from 'react';
-import { VisRxWidget } from '@iobroker/vis-2-widgets-react-dev';
 import './style.css';
 
 const PREV = '<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:6px;flex-shrink:0">&#9889; Monatskosten</div><div style="font-size:2.4rem;font-weight:700;text-align:center;color:#f39c12;margin-bottom:2px;flex-shrink:0">24.87 &#8364;</div><div style="font-size:.55rem;text-align:center;opacity:.55;margin-bottom:8px;flex-shrink:0">inkl. 8.90 &#8364; Grundgebühr</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;flex-shrink:0"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Verbrauch</div><div style="font-size:.82rem;font-weight:700;color:#3498db">87.3 kWh</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">&#216; Preis</div><div style="font-size:.82rem;font-weight:700;color:#9b59b6">28.5 ct</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Prognose</div><div style="font-size:.82rem;font-weight:700;color:#e67e22">42.0 &#8364;</div></div></div><div style="background:rgba(255,255,255,.1);border-radius:4px;height:6px;overflow:hidden;margin-bottom:5px;flex-shrink:0"><div style="background:#27ae60;height:100%;width:60%;border-radius:4px"></div></div><div style="font-size:.55rem;text-align:center;opacity:.55;flex-shrink:0">18 / 30 Tage</div></div>';
 
-class TibberMonthlyCost extends VisRxWidget {
+class TibberMonthlyCost extends window.visRxWidget {
     static getWidgetInfo() {
         return {
             id: 'tplTibberMonthlyCost',

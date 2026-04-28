@@ -1,11 +1,10 @@
 import React from 'react';
-import { VisRxWidget } from '@iobroker/vis-2-widgets-react-dev';
 import { fmtW, fmtKWh, fmtCost } from './utils';
 import './style.css';
 
 const PREV = '<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:14px;padding:14px;width:260px;height:240px;font-family:sans-serif;color:#e0e6ef;box-sizing:border-box;display:flex;flex-direction:column"><div style="font-size:.6rem;text-transform:uppercase;letter-spacing:1px;text-align:center;opacity:.7;margin-bottom:8px;flex-shrink:0">&#9889; Tibber Live</div><div style="font-size:2.6rem;font-weight:700;text-align:center;color:#27ae60;margin-bottom:12px;flex-shrink:0">1.842 kW</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;flex-shrink:0"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Min</div><div style="font-size:.82rem;font-weight:700;color:#1abc9c">450 W</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Ø Mittel</div><div style="font-size:.82rem;font-weight:700;color:#3498db">1.10 kW</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px;text-align:center"><div style="font-size:.5rem;opacity:.65;margin-bottom:2px">Max</div><div style="font-size:.82rem;font-weight:700;color:#e74c3c">3.20 kW</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1"><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Verbrauch heute</div><div style="font-size:.88rem;font-weight:700;color:#27ae60">12.456 kWh</div></div><div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px;text-align:center"><div style="font-size:.55rem;opacity:.65;margin-bottom:3px">Kosten heute</div><div style="font-size:.88rem;font-weight:700;color:#f39c12">1.87 €</div></div></div></div>';
 
-class TibberLivePower extends VisRxWidget {
+class TibberLivePower extends window.visRxWidget {
     static getWidgetInfo() {
         return {
             id: 'tplTibberLivePower',
