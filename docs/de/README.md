@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.0 (2026-04-28)
+* (ssbingo) Alle Widgets auf React/Module Federation migriert (korrekter Install/Uninstall-Zyklus, kein widgets.html-Patching mehr)
+
 ### 0.3.3 (2026-04-26)
 * (ssbingo) Dokumentation angepasst
 
