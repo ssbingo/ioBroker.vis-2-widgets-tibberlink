@@ -42,20 +42,36 @@ class TibberMonthlyCost extends window.visRxWidget {
 
     _aggregate(rawJson) {
         let rows = [];
-        try { rows = JSON.parse(rawJson) || []; } catch (e) { /* ignore */ }
+        try {
+            const parsed = JSON.parse(rawJson);
+            if (Array.isArray(parsed)) rows = parsed;
+        } catch (e) { /* ignore */ }
 
         const now         = new Date();
         const thisY       = now.getFullYear();
-        const thisM       = now.getMonth();
+        const thisM       = now.getMonth();       // 0-indexed
         const today       = now.getDate();
         const daysInMonth = new Date(thisY, thisM + 1, 0).getDate();
 
         let totalCost = 0, totalKWh = 0, daysCount = 0;
         for (const r of rows) {
-            if (!r || !r.from) continue;
+            if (!r) continue;
+            const from = r.from ?? r.startsAt ?? r.date;
+            if (from == null) continue;
             try {
-                const dt = new Date(r.from);
-                if (dt.getFullYear() === thisY && dt.getMonth() === thisM) {
+                let rowY, rowM;
+                if (typeof from === 'string' && from.length >= 7) {
+                    // Read YYYY-MM directly from the ISO string — avoids UTC conversion
+                    // so "2024-04-01T00:00:00+02:00" is always treated as April, not March
+                    const dash = from.indexOf('-', 5);
+                    rowY = parseInt(from.slice(0, 4), 10);
+                    rowM = parseInt(from.slice(5, dash > 5 ? dash : 7), 10) - 1; // 0-indexed
+                } else {
+                    const dt = new Date(from);
+                    rowY = dt.getFullYear();
+                    rowM = dt.getMonth();
+                }
+                if (rowY === thisY && rowM === thisM) {
                     totalCost += parseFloat(r.cost)        || 0;
                     totalKWh  += parseFloat(r.consumption) || 0;
                     daysCount++;
@@ -129,7 +145,7 @@ class TibberMonthlyCost extends window.visRxWidget {
                     <div className="tib-mc-progress-wrap">
                         <div className="tib-mc-bar" style={{ width: `${pct.toFixed(1)}%` }} />
                     </div>
-                    <div className="tib-mc-days">{today} / {daysInMonth} Tage</div>
+                    <div className="tib-mc-days">{daysCount} / {daysInMonth} Tage</div>
                 </div>
             </div>
         );
