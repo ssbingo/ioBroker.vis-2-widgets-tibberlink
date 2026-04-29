@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.1 (2026-04-29)
+* (ssbingo) Widget-Positionierung in der Liveview korrigiert; Monatskosten-Widget zeigt nun korrekt den laufenden Monat
+
 ### 0.4.0 (2026-04-28)
 * (ssbingo) Alle Widgets auf React/Module Federation migriert (korrekter Install/Uninstall-Zyklus, kein widgets.html-Patching mehr)
 

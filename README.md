@@ -89,6 +89,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.1 (2026-04-29)
+* (ssbingo) Fix live view widget positioning; fix monthly cost widget showing previous month instead of current month
+
 ### 0.4.0 (2026-04-28)
 * (ssbingo) Migrate all widgets to React/Module Federation (proper install/uninstall lifecycle, no more widgets.html patching)
 

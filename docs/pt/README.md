@@ -102,6 +102,9 @@ Agrega os dados de consumo `jsonDaily` do tibberlink para o mês civil actual. A
 
 ## Changelog
 
+### 0.4.1 (2026-04-29)
+* (ssbingo) Corrigido o posicionamento de widgets na visualização ao vivo; widget de custos mensais agora exibe o mês corrente
+
 ### 0.4.0 (2026-04-28)
 * (ssbingo) Migração de todos os widgets para React/Module Federation (ciclo de instalação/desinstalação correto, sem mais alterações em widgets.html)
 

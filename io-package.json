@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "news": {
+      "0.4.1": {
+        "en": "Fix live view widget positioning; fix monthly cost widget showing previous month instead of current month",
+        "de": "Widget-Positionierung in der Liveview korrigiert; Monatskosten-Widget zeigt nun korrekt den laufenden Monat",
+        "ru": "Исправлено позиционирование виджетов в режиме просмотра; виджет месячных затрат теперь показывает текущий месяц",
+        "pt": "Corrigido o posicionamento de widgets na visualização ao vivo; widget de custos mensais agora exibe o mês corrente",
+        "nl": "Widget-positionering in liveweergave gecorrigeerd; widget maandelijkse kosten toont nu de lopende maand correct",
+        "fr": "Correction du positionnement des widgets en vue en direct ; le widget des coûts mensuels affiche désormais le mois en cours",
+        "it": "Corretta la posizione dei widget nella vista live; il widget dei costi mensili ora mostra il mese corrente",
+        "es": "Corregido el posicionamiento de widgets en la vista en vivo; el widget de costos mensuales ahora muestra el mes actual",
+        "pl": "Poprawiono pozycjonowanie widgetów w widoku na żywo; widget kosztów miesięcznych wyświetla teraz bieżący miesiąc",
+        "uk": "Виправлено позиціонування віджетів у режимі перегляду; віджет місячних витрат тепер показує поточний місяць",
+        "zh-cn": "修复实时视图中小部件定位问题；月度费用小部件现在正确显示当前月份"
+      },
       "0.4.0": {
         "en": "Migrate all widgets to React/Module Federation (proper install/uninstall lifecycle, no more widgets.html patching)",
         "de": "Alle Widgets auf React/Module Federation migriert (korrekter Install/Uninstall-Zyklus, kein widgets.html-Patching mehr)",

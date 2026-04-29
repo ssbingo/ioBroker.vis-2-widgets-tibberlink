@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.1 (2026-04-29)
+* (ssbingo) Widget-positionering in liveweergave gecorrigeerd; widget maandelijkse kosten toont nu de lopende maand correct
+
 ### 0.4.0 (2026-04-28)
 * (ssbingo) Alle widgets gemigreerd naar React/Module Federation (correct installatie-/deïnstallatielevenscyclus, geen widgets.html-patching meer)
 

@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.4.1 (2026-04-29)
+* (ssbingo) Poprawiono pozycjonowanie widgetów w widoku na żywo; widget kosztów miesięcznych wyświetla teraz bieżący miesiąc
+
 ### 0.4.0 (2026-04-28)
 * (ssbingo) Migracja wszystkich widgetów do React/Module Federation (prawidłowy cykl instalacji/deinstalacji, bez patchowania widgets.html)
 
