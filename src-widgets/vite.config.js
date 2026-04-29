@@ -19,7 +19,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: '../widgets',
+        outDir: '../widgets/vis-2-widgets-tibberlink',
         emptyOutDir: true,
         target: 'esnext',
         assetsDir: '',

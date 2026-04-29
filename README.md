@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.4 (2026-04-29)
+* (ssbingo) Fix widget build output directory so vis-2 can load customWidgets.js from the correct path
+
 ### 0.4.3 (2026-04-29)
 * (ssbingo) Add widget screenshots to documentation
 

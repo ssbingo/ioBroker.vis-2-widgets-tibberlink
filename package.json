@@ -1,6 +1,6 @@
 {
   "name": "iobroker.vis-2-widgets-tibberlink",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Widgets for Tibberlink",
   "author": {
     "name": "ssbingo",
@@ -33,7 +33,7 @@
   },
   "files": [
     "admin/",
-    "widgets/**",
+    "widgets/vis-2-widgets-tibberlink/**",
     "io-package.json",
     "LICENSE"
   ],

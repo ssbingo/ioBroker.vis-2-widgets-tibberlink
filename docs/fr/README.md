@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.4 (2026-04-29)
+* (ssbingo) Correction du répertoire de sortie de la build pour que vis-2 charge customWidgets.js depuis le bon chemin
+
 ### 0.4.3 (2026-04-29)
 * (ssbingo) Captures d'écran des widgets ajoutées à la documentation
 

@@ -102,6 +102,9 @@ Aggrega i dati di consumo `jsonDaily` di tibberlink per il mese solare corrente.
 
 ## Changelog
 
+### 0.4.4 (2026-04-29)
+* (ssbingo) Corretto il percorso di output della build affinché vis-2 carichi customWidgets.js dal percorso corretto
+
 ### 0.4.3 (2026-04-29)
 * (ssbingo) Screenshot dei widget aggiunti alla documentazione
 

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "news": {
+      "0.4.4": {
+        "en": "Fix widget build output directory so vis-2 can load customWidgets.js from the correct path",
+        "de": "Build-Ausgabeverzeichnis korrigiert, damit vis-2 customWidgets.js vom richtigen Pfad laden kann",
+        "ru": "Исправлен выходной каталог сборки виджетов для корректной загрузки customWidgets.js в vis-2",
+        "pt": "Corrigido o diretório de saída da build para que o vis-2 carregue customWidgets.js do caminho correto",
+        "nl": "Build-uitvoermap gecorrigeerd zodat vis-2 customWidgets.js van het juiste pad kan laden",
+        "fr": "Correction du répertoire de sortie de la build pour que vis-2 charge customWidgets.js depuis le bon chemin",
+        "it": "Corretto il percorso di output della build affinché vis-2 carichi customWidgets.js dal percorso corretto",
+        "es": "Corregido el directorio de salida de la build para que vis-2 cargue customWidgets.js desde la ruta correcta",
+        "pl": "Poprawiono katalog wyjściowy buildu, aby vis-2 mogło załadować customWidgets.js z właściwej ścieżki",
+        "uk": "Виправлено вихідний каталог збірки, щоб vis-2 коректно завантажував customWidgets.js з правильного шляху",
+        "zh-cn": "修复构建输出目录，使 vis-2 能从正确路径加载 customWidgets.js"
+      },
       "0.4.3": {
         "en": "Add widget screenshots to documentation",
         "de": "Widget-Screenshots zur Dokumentation hinzugefügt",
