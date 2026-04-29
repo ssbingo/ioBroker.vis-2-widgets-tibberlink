@@ -54,45 +54,6 @@
         "pl": "Poprawiono pozycjonowanie widgetów w widoku na żywo; widget kosztów miesięcznych wyświetla teraz bieżący miesiąc",
         "uk": "Виправлено позиціонування віджетів у режимі перегляду; віджет місячних витрат тепер показує поточний місяць",
         "zh-cn": "修复实时视图中小部件定位问题；月度费用小部件现在正确显示当前月份"
-      },
-      "0.4.0": {
-        "en": "Migrate all widgets to React/Module Federation (proper install/uninstall lifecycle, no more widgets.html patching)",
-        "de": "Alle Widgets auf React/Module Federation migriert (korrekter Install/Uninstall-Zyklus, kein widgets.html-Patching mehr)",
-        "ru": "Все виджеты перенесены на React/Module Federation (правильный цикл установки/удаления, без изменения widgets.html)",
-        "pt": "Migração de todos os widgets para React/Module Federation (ciclo de instalação/desinstalação correto, sem mais alterações em widgets.html)",
-        "nl": "Alle widgets gemigreerd naar React/Module Federation (correct installatie-/deïnstallatielevenscyclus, geen widgets.html-patching meer)",
-        "fr": "Migration de tous les widgets vers React/Module Federation (cycle d'installation/désinstallation correct, plus de modification de widgets.html)",
-        "it": "Migrazione di tutti i widget a React/Module Federation (ciclo di installazione/disinstallazione corretto, senza più modifiche a widgets.html)",
-        "es": "Migración de todos los widgets a React/Module Federation (ciclo correcto de instalación/desinstalación, sin más parcheo de widgets.html)",
-        "pl": "Migracja wszystkich widgetów do React/Module Federation (prawidłowy cykl instalacji/deinstalacji, bez patchowania widgets.html)",
-        "uk": "Перенесення всіх віджетів на React/Module Federation (правильний цикл встановлення/видалення, без патчування widgets.html)",
-        "zh-cn": "将所有组件迁移到 React/Module Federation（正确的安装/卸载生命周期，不再修改 widgets.html）"
-      },
-      "0.3.3": {
-        "en": "Update documentation",
-        "de": "Dokumentation angepasst",
-        "ru": "Обновление документации",
-        "pt": "Documentação actualizada",
-        "nl": "Documentatie bijgewerkt",
-        "fr": "Documentation mise à jour",
-        "it": "Documentazione aggiornata",
-        "es": "Documentación actualizada",
-        "pl": "Aktualizacja dokumentacji",
-        "uk": "Оновлення документації",
-        "zh-cn": "更新文档"
-      },
-      "0.3.2": {
-        "en": "Widget 2: replace price chart with TibberCheapestWindow (cheapest N-hour sliding window with sparkline)",
-        "de": "Widget 2: Preisdiagramm durch TibberCheapestWindow ersetzt (günstigstes N-Stunden-Fenster mit Sparkline)",
-        "ru": "Виджет 2: диаграмма цен заменена на TibberCheapestWindow (скользящее окно наименьшей стоимости с графиком)",
-        "pt": "Widget 2: gráfico de preços substituído por TibberCheapestWindow (janela deslizante de N horas mais barata com sparkline)",
-        "nl": "Widget 2: prijsgrafiek vervangen door TibberCheapestWindow (goedkoopste N-uursvenster met sparkline)",
-        "fr": "Widget 2: graphique des prix remplacé par TibberCheapestWindow (fenêtre glissante N heures la moins chère avec sparkline)",
-        "it": "Widget 2: grafico prezzi sostituito con TibberCheapestWindow (finestra scorrevole N ore più economica con sparkline)",
-        "es": "Widget 2: gráfico de precios reemplazado por TibberCheapestWindow (ventana deslizante de N horas más barata con sparkline)",
-        "pl": "Widget 2: wykres cen zastąpiony przez TibberCheapestWindow (najtańsze okno przesuwne N godzin ze sparkline)",
-        "uk": "Віджет 2: графік цін замінено на TibberCheapestWindow (ковзне вікно найдешевших N годин зі sparkline)",
-        "zh-cn": "小部件2：价格图表替换为TibberCheapestWindow（最便宜N小时滑动窗口含走势图）"
       }
     },
     "titleLang": {
