@@ -30,6 +30,8 @@ Your **Home ID** is the UUID visible in the ioBroker objects tree under `tibberl
 
 ### Widget 1 — Current Tibber Price
 
+![Current Tibber Price](docs/img/vis-2-widget-Strompreis.png)
+
 Displays the current electricity price in large text, a colour-coded level badge (VERY_CHEAP … VERY_EXPENSIVE), the valid-from time, and an optional cost breakdown.
 
 | Option | Default | Description |
@@ -46,6 +48,8 @@ Displays the current electricity price in large text, a colour-coded level badge
 ---
 
 ### Widget 2 — Cheapest Time Window
+
+![Cheapest Time Window](docs/img/vis-2-widget-Cheapest-Window.png)
 
 Uses a sliding-window algorithm to find the cheapest consecutive N-hour block in today's (and optionally tomorrow's) price data. Displays start and end time, average price, and a colour-coded sparkline bar chart. Slot duration (15 min / 60 min) is auto-detected.
 
@@ -77,6 +81,8 @@ Shows real-time power draw in large text alongside minimum, average, and maximum
 ---
 
 ### Widget 4 — Monthly Electricity Cost
+
+![Monthly Electricity Cost](docs/img/vis-2-widget-Monatskosten.png)
 
 Aggregates the tibberlink `jsonDaily` consumption data for the current calendar month. Shows total cost, total consumption, average price, an end-of-month projection, and a progress bar indicating how far through the month you are. Requires **"Historical consumption data retrieval"** enabled in tibberlink with a daily dataset count of at least 31.
 
