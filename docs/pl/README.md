@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.4.2 (2026-04-29)
+* (ssbingo) Poprawiono ścieżkę pliku widgetu, aby vis-2 mogło poprawnie załadować customWidgets.js
+
 ### 0.4.1 (2026-04-29)
 * (ssbingo) Poprawiono pozycjonowanie widgetów w widoku na żywo; widget kosztów miesięcznych wyświetla teraz bieżący miesiąc
 

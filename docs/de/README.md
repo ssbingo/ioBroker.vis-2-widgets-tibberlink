@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.2 (2026-04-29)
+* (ssbingo) Widget-Dateipfad korrigiert, damit vis-2 customWidgets.js korrekt laden kann
+
 ### 0.4.1 (2026-04-29)
 * (ssbingo) Widget-Positionierung in der Liveview korrigiert; Monatskosten-Widget zeigt nun korrekt den laufenden Monat
 

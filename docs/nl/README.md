@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.2 (2026-04-29)
+* (ssbingo) Widget-bestandspad gecorrigeerd zodat vis-2 customWidgets.js correct kan laden
+
 ### 0.4.1 (2026-04-29)
 * (ssbingo) Widget-positionering in liveweergave gecorrigeerd; widget maandelijkse kosten toont nu de lopende maand correct
 

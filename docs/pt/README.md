@@ -102,6 +102,9 @@ Agrega os dados de consumo `jsonDaily` do tibberlink para o mês civil actual. A
 
 ## Changelog
 
+### 0.4.2 (2026-04-29)
+* (ssbingo) Corrigido o caminho do arquivo do widget para que o vis-2 carregue customWidgets.js corretamente
+
 ### 0.4.1 (2026-04-29)
 * (ssbingo) Corrigido o posicionamento de widgets na visualização ao vivo; widget de custos mensais agora exibe o mês corrente
 

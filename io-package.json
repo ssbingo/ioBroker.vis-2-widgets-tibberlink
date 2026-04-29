@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "news": {
+      "0.4.2": {
+        "en": "Fix widget file path so vis-2 can load customWidgets.js correctly",
+        "de": "Widget-Dateipfad korrigiert, damit vis-2 customWidgets.js korrekt laden kann",
+        "ru": "Исправлен путь к файлам виджетов для корректной загрузки customWidgets.js в vis-2",
+        "pt": "Corrigido o caminho do arquivo do widget para que o vis-2 carregue customWidgets.js corretamente",
+        "nl": "Widget-bestandspad gecorrigeerd zodat vis-2 customWidgets.js correct kan laden",
+        "fr": "Correction du chemin des fichiers du widget pour que vis-2 charge customWidgets.js correctement",
+        "it": "Corretto il percorso del file del widget affinché vis-2 carichi correttamente customWidgets.js",
+        "es": "Corregida la ruta del archivo del widget para que vis-2 cargue customWidgets.js correctamente",
+        "pl": "Poprawiono ścieżkę pliku widgetu, aby vis-2 mogło poprawnie załadować customWidgets.js",
+        "uk": "Виправлено шлях до файлу віджету, щоб vis-2 міг коректно завантажити customWidgets.js",
+        "zh-cn": "修复小部件文件路径，使 vis-2 能正确加载 customWidgets.js"
+      },
       "0.4.1": {
         "en": "Fix live view widget positioning; fix monthly cost widget showing previous month instead of current month",
         "de": "Widget-Positionierung in der Liveview korrigiert; Monatskosten-Widget zeigt nun korrekt den laufenden Monat",

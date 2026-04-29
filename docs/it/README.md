@@ -102,6 +102,9 @@ Aggrega i dati di consumo `jsonDaily` di tibberlink per il mese solare corrente.
 
 ## Changelog
 
+### 0.4.2 (2026-04-29)
+* (ssbingo) Corretto il percorso del file del widget affinché vis-2 carichi correttamente customWidgets.js
+
 ### 0.4.1 (2026-04-29)
 * (ssbingo) Corretta la posizione dei widget nella vista live; il widget dei costi mensili ora mostra il mese corrente
 
