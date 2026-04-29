@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "news": {
+      "0.4.3": {
+        "en": "Add widget screenshots to documentation",
+        "de": "Widget-Screenshots zur Dokumentation hinzugefügt",
+        "ru": "Добавлены скриншоты виджетов в документацию",
+        "pt": "Capturas de ecrã dos widgets adicionadas à documentação",
+        "nl": "Widget-screenshots toegevoegd aan de documentatie",
+        "fr": "Captures d'écran des widgets ajoutées à la documentation",
+        "it": "Screenshot dei widget aggiunti alla documentazione",
+        "es": "Capturas de pantalla de widgets añadidas a la documentación",
+        "pl": "Dodano zrzuty ekranu widgetów do dokumentacji",
+        "uk": "Додано знімки екрану віджетів до документації",
+        "zh-cn": "在文档中添加小部件截图"
+      },
       "0.4.2": {
         "en": "Fix widget file path so vis-2 can load customWidgets.js correctly",
         "de": "Widget-Dateipfad korrigiert, damit vis-2 customWidgets.js korrekt laden kann",

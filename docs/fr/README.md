@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.3 (2026-04-29)
+* (ssbingo) Captures d'écran des widgets ajoutées à la documentation
+
 ### 0.4.2 (2026-04-29)
 * (ssbingo) Correction du chemin des fichiers du widget pour que vis-2 charge customWidgets.js correctement
 
