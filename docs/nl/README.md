@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.5 (2026-04-29)
+* (ssbingo) Niet-gepubliceerde versies verwijderd uit common.news; Dependabot-configuratie voor src-widgets gecorrigeerd
+
 ### 0.4.4 (2026-04-29)
 * (ssbingo) Build-uitvoermap gecorrigeerd zodat vis-2 customWidgets.js van het juiste pad kan laden
 

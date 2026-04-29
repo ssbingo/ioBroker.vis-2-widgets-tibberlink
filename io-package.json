@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.4",
+    "version": "0.4.5",
     "news": {
+      "0.4.5": {
+        "en": "Fix common.news to remove unpublished versions; fix Dependabot config for src-widgets",
+        "de": "Nicht veröffentlichte Versionen aus common.news entfernt; Dependabot-Konfiguration für src-widgets korrigiert",
+        "ru": "Удалены неопубликованные версии из common.news; исправлена конфигурация Dependabot для src-widgets",
+        "pt": "Removidas versões não publicadas do common.news; corrigida a configuração do Dependabot para src-widgets",
+        "nl": "Niet-gepubliceerde versies verwijderd uit common.news; Dependabot-configuratie voor src-widgets gecorrigeerd",
+        "fr": "Suppression des versions non publiées de common.news ; correction de la configuration Dependabot pour src-widgets",
+        "it": "Rimosse versioni non pubblicate da common.news; corretta la configurazione Dependabot per src-widgets",
+        "es": "Eliminadas versiones no publicadas de common.news; corregida la configuración de Dependabot para src-widgets",
+        "pl": "Usunięto nieopublikowane wersje z common.news; poprawiono konfigurację Dependabot dla src-widgets",
+        "uk": "Видалено неопубліковані версії з common.news; виправлено конфігурацію Dependabot для src-widgets",
+        "zh-cn": "从 common.news 中移除未发布版本；修复 src-widgets 的 Dependabot 配置"
+      },
       "0.4.4": {
         "en": "Fix widget build output directory so vis-2 can load customWidgets.js from the correct path",
         "de": "Build-Ausgabeverzeichnis korrigiert, damit vis-2 customWidgets.js vom richtigen Pfad laden kann",

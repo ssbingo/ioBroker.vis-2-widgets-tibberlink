@@ -102,6 +102,9 @@ Agrega os dados de consumo `jsonDaily` do tibberlink para o mês civil actual. A
 
 ## Changelog
 
+### 0.4.5 (2026-04-29)
+* (ssbingo) Removidas versões não publicadas do common.news; corrigida a configuração do Dependabot para src-widgets
+
 ### 0.4.4 (2026-04-29)
 * (ssbingo) Corrigido o diretório de saída da build para que o vis-2 carregue customWidgets.js do caminho correto
 

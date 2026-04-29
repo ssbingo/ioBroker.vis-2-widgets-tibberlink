@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.5 (2026-04-29)
+* (ssbingo) 从 common.news 中移除未发布版本；修复 src-widgets 的 Dependabot 配置
+
 ### 0.4.4 (2026-04-29)
 * (ssbingo) 修复构建输出目录，使 vis-2 能从正确路径加载 customWidgets.js
 

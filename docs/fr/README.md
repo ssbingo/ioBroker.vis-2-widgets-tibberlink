@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.5 (2026-04-29)
+* (ssbingo) Suppression des versions non publiées de common.news ; correction de la configuration Dependabot pour src-widgets
+
 ### 0.4.4 (2026-04-29)
 * (ssbingo) Correction du répertoire de sortie de la build pour que vis-2 charge customWidgets.js depuis le bon chemin
 
