@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-check@v1
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           install-command: 'npm install'
 
 
@@ -52,6 +52,6 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-deploy@v1
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           install-command: 'npm install && cd src-widgets && npm install && cd ..'
           github-token: ${{ secrets.GITHUB_TOKEN }}
