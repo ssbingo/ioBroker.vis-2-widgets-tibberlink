@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.7 (2026-05-27)
+* (ssbingo) Ajout de prettier.config.mjs ; style de code corrigé avec des guillemets simples
+
 ### 0.4.6 (2026-05-27)
 * (ssbingo) Ajout de la configuration ESLint et du script lint ; mise à jour de Node.js vers 24 ; correction de Dependabot pour @types/node
 

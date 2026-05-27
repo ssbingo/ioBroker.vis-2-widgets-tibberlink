@@ -102,6 +102,9 @@ Agrega os dados de consumo `jsonDaily` do tibberlink para o mês civil actual. A
 
 ## Changelog
 
+### 0.4.7 (2026-05-27)
+* (ssbingo) Adicionado prettier.config.mjs; estilo de código corrigido para aspas simples
+
 ### 0.4.6 (2026-05-27)
 * (ssbingo) Adicionada configuração ESLint e script lint; atualizado Node.js para 24; corrigido Dependabot para @types/node
 

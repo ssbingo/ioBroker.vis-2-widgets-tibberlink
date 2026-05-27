@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.6",
+    "version": "0.4.7",
     "news": {
+      "0.4.7": {
+        "en": "Add prettier.config.mjs; fix code style to single quotes throughout",
+        "de": "prettier.config.mjs hinzugefügt; Code-Stil auf einfache Anführungszeichen vereinheitlicht",
+        "ru": "Добавлен prettier.config.mjs; стиль кода приведён к одинарным кавычкам",
+        "pt": "Adicionado prettier.config.mjs; estilo de código corrigido para aspas simples",
+        "nl": "prettier.config.mjs toegevoegd; codestijl gecorrigeerd naar enkele aanhalingstekens",
+        "fr": "Ajout de prettier.config.mjs ; style de code corrigé avec des guillemets simples",
+        "it": "Aggiunto prettier.config.mjs; stile del codice corretto con virgolette singole",
+        "es": "Añadido prettier.config.mjs; estilo de código corregido a comillas simples",
+        "pl": "Dodano prettier.config.mjs; styl kodu poprawiony na pojedyncze cudzysłowy",
+        "uk": "Додано prettier.config.mjs; стиль коду виправлено на одинарні лапки",
+        "zh-cn": "添加 prettier.config.mjs；统一代码风格为单引号"
+      },
       "0.4.6": {
         "en": "Add ESLint config and lint script; update Node.js to 24; fix Dependabot for @types/node",
         "de": "ESLint-Konfiguration und Lint-Script hinzugefügt; Node.js auf 24 aktualisiert; Dependabot für @types/node korrigiert",

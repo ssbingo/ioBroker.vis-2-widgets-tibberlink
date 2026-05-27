@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.7 (2026-05-27)
+* (ssbingo) prettier.config.mjs toegevoegd; codestijl gecorrigeerd naar enkele aanhalingstekens
+
 ### 0.4.6 (2026-05-27)
 * (ssbingo) ESLint-configuratie en lint-script toegevoegd; Node.js bijgewerkt naar 24; Dependabot voor @types/node gecorrigeerd
 

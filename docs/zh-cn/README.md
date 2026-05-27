@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.7 (2026-05-27)
+* (ssbingo) 添加 prettier.config.mjs；统一代码风格为单引号
+
 ### 0.4.6 (2026-05-27)
 * (ssbingo) 添加 ESLint 配置和 lint 脚本；将 Node.js 更新至 24；修复 @types/node 的 Dependabot 配置
 
