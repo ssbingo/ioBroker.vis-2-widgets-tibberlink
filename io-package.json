@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.5",
+    "version": "0.4.6",
     "news": {
+      "0.4.6": {
+        "en": "Add ESLint config and lint script; update Node.js to 24; fix Dependabot for @types/node",
+        "de": "ESLint-Konfiguration und Lint-Script hinzugefügt; Node.js auf 24 aktualisiert; Dependabot für @types/node korrigiert",
+        "ru": "Добавлена конфигурация ESLint и скрипт lint; обновлён Node.js до 24; исправлен Dependabot для @types/node",
+        "pt": "Adicionada configuração ESLint e script lint; atualizado Node.js para 24; corrigido Dependabot para @types/node",
+        "nl": "ESLint-configuratie en lint-script toegevoegd; Node.js bijgewerkt naar 24; Dependabot voor @types/node gecorrigeerd",
+        "fr": "Ajout de la configuration ESLint et du script lint ; mise à jour de Node.js vers 24 ; correction de Dependabot pour @types/node",
+        "it": "Aggiunta configurazione ESLint e script lint; aggiornato Node.js a 24; corretto Dependabot per @types/node",
+        "es": "Añadida configuración ESLint y script lint; actualizado Node.js a 24; corregido Dependabot para @types/node",
+        "pl": "Dodano konfigurację ESLint i skrypt lint; zaktualizowano Node.js do 24; poprawiono Dependabot dla @types/node",
+        "uk": "Додано конфігурацію ESLint та скрипт lint; оновлено Node.js до 24; виправлено Dependabot для @types/node",
+        "zh-cn": "添加 ESLint 配置和 lint 脚本；将 Node.js 更新至 24；修复 @types/node 的 Dependabot 配置"
+      },
       "0.4.5": {
         "en": "Fix common.news to remove unpublished versions; fix Dependabot config for src-widgets",
         "de": "Nicht veröffentlichte Versionen aus common.news entfernt; Dependabot-Konfiguration für src-widgets korrigiert",

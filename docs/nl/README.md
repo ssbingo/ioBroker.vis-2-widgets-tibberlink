@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.6 (2026-05-27)
+* (ssbingo) ESLint-configuratie en lint-script toegevoegd; Node.js bijgewerkt naar 24; Dependabot voor @types/node gecorrigeerd
+
 ### 0.4.5 (2026-04-29)
 * (ssbingo) Niet-gepubliceerde versies verwijderd uit common.news; Dependabot-configuratie voor src-widgets gecorrigeerd
 

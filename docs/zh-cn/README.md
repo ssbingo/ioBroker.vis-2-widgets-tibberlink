@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.6 (2026-05-27)
+* (ssbingo) 添加 ESLint 配置和 lint 脚本；将 Node.js 更新至 24；修复 @types/node 的 Dependabot 配置
+
 ### 0.4.5 (2026-04-29)
 * (ssbingo) 从 common.news 中移除未发布版本；修复 src-widgets 的 Dependabot 配置
 

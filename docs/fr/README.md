@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.6 (2026-05-27)
+* (ssbingo) Ajout de la configuration ESLint et du script lint ; mise à jour de Node.js vers 24 ; correction de Dependabot pour @types/node
+
 ### 0.4.5 (2026-04-29)
 * (ssbingo) Suppression des versions non publiées de common.news ; correction de la configuration Dependabot pour src-widgets
 
