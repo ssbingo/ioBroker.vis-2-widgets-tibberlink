@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.8 (2026-06-13)
+* (ssbingo) Update release-script to 5.2.1
+
 ### 0.4.7 (2026-05-27)
 * (ssbingo) Add prettier.config.mjs; fix code style to single quotes throughout
 

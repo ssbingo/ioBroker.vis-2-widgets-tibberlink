@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.4.8 (2026-06-13)
+* (ssbingo) Aktualizacja release-script do 5.2.1
+
 ### 0.4.7 (2026-05-27)
 * (ssbingo) Dodano prettier.config.mjs; styl kodu poprawiony na pojedyncze cudzysłowy
 

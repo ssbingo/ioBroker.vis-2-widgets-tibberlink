@@ -1,174 +1,174 @@
 {
-  "common": {
-    "name": "vis-2-widgets-tibberlink",
-    "version": "0.4.7",
-    "news": {
-      "0.4.7": {
-        "en": "Add prettier.config.mjs; fix code style to single quotes throughout",
-        "de": "prettier.config.mjs hinzugefügt; Code-Stil auf einfache Anführungszeichen vereinheitlicht",
-        "ru": "Добавлен prettier.config.mjs; стиль кода приведён к одинарным кавычкам",
-        "pt": "Adicionado prettier.config.mjs; estilo de código corrigido para aspas simples",
-        "nl": "prettier.config.mjs toegevoegd; codestijl gecorrigeerd naar enkele aanhalingstekens",
-        "fr": "Ajout de prettier.config.mjs ; style de code corrigé avec des guillemets simples",
-        "it": "Aggiunto prettier.config.mjs; stile del codice corretto con virgolette singole",
-        "es": "Añadido prettier.config.mjs; estilo de código corregido a comillas simples",
-        "pl": "Dodano prettier.config.mjs; styl kodu poprawiony na pojedyncze cudzysłowy",
-        "uk": "Додано prettier.config.mjs; стиль коду виправлено на одинарні лапки",
-        "zh-cn": "添加 prettier.config.mjs；统一代码风格为单引号"
-      },
-      "0.4.6": {
-        "en": "Add ESLint config and lint script; update Node.js to 24; fix Dependabot for @types/node",
-        "de": "ESLint-Konfiguration und Lint-Script hinzugefügt; Node.js auf 24 aktualisiert; Dependabot für @types/node korrigiert",
-        "ru": "Добавлена конфигурация ESLint и скрипт lint; обновлён Node.js до 24; исправлен Dependabot для @types/node",
-        "pt": "Adicionada configuração ESLint e script lint; atualizado Node.js para 24; corrigido Dependabot para @types/node",
-        "nl": "ESLint-configuratie en lint-script toegevoegd; Node.js bijgewerkt naar 24; Dependabot voor @types/node gecorrigeerd",
-        "fr": "Ajout de la configuration ESLint et du script lint ; mise à jour de Node.js vers 24 ; correction de Dependabot pour @types/node",
-        "it": "Aggiunta configurazione ESLint e script lint; aggiornato Node.js a 24; corretto Dependabot per @types/node",
-        "es": "Añadida configuración ESLint y script lint; actualizado Node.js a 24; corregido Dependabot para @types/node",
-        "pl": "Dodano konfigurację ESLint i skrypt lint; zaktualizowano Node.js do 24; poprawiono Dependabot dla @types/node",
-        "uk": "Додано конфігурацію ESLint та скрипт lint; оновлено Node.js до 24; виправлено Dependabot для @types/node",
-        "zh-cn": "添加 ESLint 配置和 lint 脚本；将 Node.js 更新至 24；修复 @types/node 的 Dependabot 配置"
-      },
-      "0.4.5": {
-        "en": "Fix common.news to remove unpublished versions; fix Dependabot config for src-widgets",
-        "de": "Nicht veröffentlichte Versionen aus common.news entfernt; Dependabot-Konfiguration für src-widgets korrigiert",
-        "ru": "Удалены неопубликованные версии из common.news; исправлена конфигурация Dependabot для src-widgets",
-        "pt": "Removidas versões não publicadas do common.news; corrigida a configuração do Dependabot para src-widgets",
-        "nl": "Niet-gepubliceerde versies verwijderd uit common.news; Dependabot-configuratie voor src-widgets gecorrigeerd",
-        "fr": "Suppression des versions non publiées de common.news ; correction de la configuration Dependabot pour src-widgets",
-        "it": "Rimosse versioni non pubblicate da common.news; corretta la configurazione Dependabot per src-widgets",
-        "es": "Eliminadas versiones no publicadas de common.news; corregida la configuración de Dependabot para src-widgets",
-        "pl": "Usunięto nieopublikowane wersje z common.news; poprawiono konfigurację Dependabot dla src-widgets",
-        "uk": "Видалено неопубліковані версії з common.news; виправлено конфігурацію Dependabot для src-widgets",
-        "zh-cn": "从 common.news 中移除未发布版本；修复 src-widgets 的 Dependabot 配置"
-      },
-      "0.4.4": {
-        "en": "Fix widget build output directory so vis-2 can load customWidgets.js from the correct path",
-        "de": "Build-Ausgabeverzeichnis korrigiert, damit vis-2 customWidgets.js vom richtigen Pfad laden kann",
-        "ru": "Исправлен выходной каталог сборки виджетов для корректной загрузки customWidgets.js в vis-2",
-        "pt": "Corrigido o diretório de saída da build para que o vis-2 carregue customWidgets.js do caminho correto",
-        "nl": "Build-uitvoermap gecorrigeerd zodat vis-2 customWidgets.js van het juiste pad kan laden",
-        "fr": "Correction du répertoire de sortie de la build pour que vis-2 charge customWidgets.js depuis le bon chemin",
-        "it": "Corretto il percorso di output della build affinché vis-2 carichi customWidgets.js dal percorso corretto",
-        "es": "Corregido el directorio de salida de la build para que vis-2 cargue customWidgets.js desde la ruta correcta",
-        "pl": "Poprawiono katalog wyjściowy buildu, aby vis-2 mogło załadować customWidgets.js z właściwej ścieżki",
-        "uk": "Виправлено вихідний каталог збірки, щоб vis-2 коректно завантажував customWidgets.js з правильного шляху",
-        "zh-cn": "修复构建输出目录，使 vis-2 能从正确路径加载 customWidgets.js"
-      },
-      "0.4.3": {
-        "en": "Add widget screenshots to documentation",
-        "de": "Widget-Screenshots zur Dokumentation hinzugefügt",
-        "ru": "Добавлены скриншоты виджетов в документацию",
-        "pt": "Capturas de ecrã dos widgets adicionadas à documentação",
-        "nl": "Widget-screenshots toegevoegd aan de documentatie",
-        "fr": "Captures d'écran des widgets ajoutées à la documentation",
-        "it": "Screenshot dei widget aggiunti alla documentazione",
-        "es": "Capturas de pantalla de widgets añadidas a la documentación",
-        "pl": "Dodano zrzuty ekranu widgetów do dokumentacji",
-        "uk": "Додано знімки екрану віджетів до документації",
-        "zh-cn": "在文档中添加小部件截图"
-      },
-      "0.4.2": {
-        "en": "Fix widget file path so vis-2 can load customWidgets.js correctly",
-        "de": "Widget-Dateipfad korrigiert, damit vis-2 customWidgets.js korrekt laden kann",
-        "ru": "Исправлен путь к файлам виджетов для корректной загрузки customWidgets.js в vis-2",
-        "pt": "Corrigido o caminho do arquivo do widget para que o vis-2 carregue customWidgets.js corretamente",
-        "nl": "Widget-bestandspad gecorrigeerd zodat vis-2 customWidgets.js correct kan laden",
-        "fr": "Correction du chemin des fichiers du widget pour que vis-2 charge customWidgets.js correctement",
-        "it": "Corretto il percorso del file del widget affinché vis-2 carichi correttamente customWidgets.js",
-        "es": "Corregida la ruta del archivo del widget para que vis-2 cargue customWidgets.js correctamente",
-        "pl": "Poprawiono ścieżkę pliku widgetu, aby vis-2 mogło poprawnie załadować customWidgets.js",
-        "uk": "Виправлено шлях до файлу віджету, щоб vis-2 міг коректно завантажити customWidgets.js",
-        "zh-cn": "修复小部件文件路径，使 vis-2 能正确加载 customWidgets.js"
-      },
-      "0.4.1": {
-        "en": "Fix live view widget positioning; fix monthly cost widget showing previous month instead of current month",
-        "de": "Widget-Positionierung in der Liveview korrigiert; Monatskosten-Widget zeigt nun korrekt den laufenden Monat",
-        "ru": "Исправлено позиционирование виджетов в режиме просмотра; виджет месячных затрат теперь показывает текущий месяц",
-        "pt": "Corrigido o posicionamento de widgets na visualização ao vivo; widget de custos mensais agora exibe o mês corrente",
-        "nl": "Widget-positionering in liveweergave gecorrigeerd; widget maandelijkse kosten toont nu de lopende maand correct",
-        "fr": "Correction du positionnement des widgets en vue en direct ; le widget des coûts mensuels affiche désormais le mois en cours",
-        "it": "Corretta la posizione dei widget nella vista live; il widget dei costi mensili ora mostra il mese corrente",
-        "es": "Corregido el posicionamiento de widgets en la vista en vivo; el widget de costos mensuales ahora muestra el mes actual",
-        "pl": "Poprawiono pozycjonowanie widgetów w widoku na żywo; widget kosztów miesięcznych wyświetla teraz bieżący miesiąc",
-        "uk": "Виправлено позиціонування віджетів у режимі перегляду; віджет місячних витрат тепер показує поточний місяць",
-        "zh-cn": "修复实时视图中小部件定位问题；月度费用小部件现在正确显示当前月份"
-      }
+    "common": {
+        "name": "vis-2-widgets-tibberlink",
+        "version": "0.4.8",
+        "news": {
+            "0.4.8": {
+                "en": "fix: update release-script to 5.2.1",
+                "de": "fix: release-script auf 5.2.1 aktualisiert",
+                "ru": "fix: обновление release-script до 5.2.1",
+                "nl": "fix: release-script bijgewerkt naar 5.2.1",
+                "fr": "fix: mise à jour de release-script vers 5.2.1",
+                "it": "fix: aggiornamento release-script a 5.2.1",
+                "es": "fix: actualización de release-script a 5.2.1",
+                "pl": "fix: aktualizacja release-script do 5.2.1",
+                "pt": "fix: atualização do release-script para 5.2.1",
+                "uk": "fix: оновлення release-script до 5.2.1",
+                "zh-cn": "fix: 将 release-script 更新至 5.2.1"
+            },
+            "0.4.7": {
+                "en": "Add prettier.config.mjs; fix code style to single quotes throughout",
+                "de": "prettier.config.mjs hinzugefügt; Code-Stil auf einfache Anführungszeichen vereinheitlicht",
+                "ru": "Добавлен prettier.config.mjs; стиль кода приведён к одинарным кавычкам",
+                "pt": "Adicionado prettier.config.mjs; estilo de código corrigido para aspas simples",
+                "nl": "prettier.config.mjs toegevoegd; codestijl gecorrigeerd naar enkele aanhalingstekens",
+                "fr": "Ajout de prettier.config.mjs ; style de code corrigé avec des guillemets simples",
+                "it": "Aggiunto prettier.config.mjs; stile del codice corretto con virgolette singole",
+                "es": "Añadido prettier.config.mjs; estilo de código corregido a comillas simples",
+                "pl": "Dodano prettier.config.mjs; styl kodu poprawiony na pojedyncze cudzysłowy",
+                "uk": "Додано prettier.config.mjs; стиль коду виправлено на одинарні лапки",
+                "zh-cn": "添加 prettier.config.mjs；统一代码风格为单引号"
+            },
+            "0.4.6": {
+                "en": "Add ESLint config and lint script; update Node.js to 24; fix Dependabot for @types/node",
+                "de": "ESLint-Konfiguration und Lint-Script hinzugefügt; Node.js auf 24 aktualisiert; Dependabot für @types/node korrigiert",
+                "ru": "Добавлена конфигурация ESLint и скрипт lint; обновлён Node.js до 24; исправлен Dependabot для @types/node",
+                "pt": "Adicionada configuração ESLint e script lint; atualizado Node.js para 24; corrigido Dependabot para @types/node",
+                "nl": "ESLint-configuratie en lint-script toegevoegd; Node.js bijgewerkt naar 24; Dependabot voor @types/node gecorrigeerd",
+                "fr": "Ajout de la configuration ESLint et du script lint ; mise à jour de Node.js vers 24 ; correction de Dependabot pour @types/node",
+                "it": "Aggiunta configurazione ESLint e script lint; aggiornato Node.js a 24; corretto Dependabot per @types/node",
+                "es": "Añadida configuración ESLint y script lint; actualizado Node.js a 24; corregido Dependabot para @types/node",
+                "pl": "Dodano konfigurację ESLint i skrypt lint; zaktualizowano Node.js do 24; poprawiono Dependabot dla @types/node",
+                "uk": "Додано конфігурацію ESLint та скрипт lint; оновлено Node.js до 24; виправлено Dependabot для @types/node",
+                "zh-cn": "添加 ESLint 配置和 lint 脚本；将 Node.js 更新至 24；修复 @types/node 的 Dependabot 配置"
+            },
+            "0.4.5": {
+                "en": "Fix common.news to remove unpublished versions; fix Dependabot config for src-widgets",
+                "de": "Nicht veröffentlichte Versionen aus common.news entfernt; Dependabot-Konfiguration für src-widgets korrigiert",
+                "ru": "Удалены неопубликованные версии из common.news; исправлена конфигурация Dependabot для src-widgets",
+                "pt": "Removidas versões não publicadas do common.news; corrigida a configuração do Dependabot para src-widgets",
+                "nl": "Niet-gepubliceerde versies verwijderd uit common.news; Dependabot-configuratie voor src-widgets gecorrigeerd",
+                "fr": "Suppression des versions non publiées de common.news ; correction de la configuration Dependabot pour src-widgets",
+                "it": "Rimosse versioni non pubblicate da common.news; corretta la configurazione Dependabot per src-widgets",
+                "es": "Eliminadas versiones no publicadas de common.news; corregida la configuración de Dependabot para src-widgets",
+                "pl": "Usunięto nieopublikowane wersje z common.news; poprawiono konfigurację Dependabot dla src-widgets",
+                "uk": "Видалено неопубліковані версії з common.news; виправлено конфігурацію Dependabot для src-widgets",
+                "zh-cn": "从 common.news 中移除未发布版本；修复 src-widgets 的 Dependabot 配置"
+            },
+            "0.4.4": {
+                "en": "Fix widget build output directory so vis-2 can load customWidgets.js from the correct path",
+                "de": "Build-Ausgabeverzeichnis korrigiert, damit vis-2 customWidgets.js vom richtigen Pfad laden kann",
+                "ru": "Исправлен выходной каталог сборки виджетов для корректной загрузки customWidgets.js в vis-2",
+                "pt": "Corrigido o diretório de saída da build para que o vis-2 carregue customWidgets.js do caminho correto",
+                "nl": "Build-uitvoermap gecorrigeerd zodat vis-2 customWidgets.js van het juiste pad kan laden",
+                "fr": "Correction du répertoire de sortie de la build pour que vis-2 charge customWidgets.js depuis le bon chemin",
+                "it": "Corretto il percorso di output della build affinché vis-2 carichi customWidgets.js dal percorso corretto",
+                "es": "Corregido el directorio de salida de la build para que vis-2 cargue customWidgets.js desde la ruta correcta",
+                "pl": "Poprawiono katalog wyjściowy buildu, aby vis-2 mogło załadować customWidgets.js z właściwej ścieżki",
+                "uk": "Виправлено вихідний каталог збірки, щоб vis-2 коректно завантажував customWidgets.js з правильного шляху",
+                "zh-cn": "修复构建输出目录，使 vis-2 能从正确路径加载 customWidgets.js"
+            },
+            "0.4.3": {
+                "en": "Add widget screenshots to documentation",
+                "de": "Widget-Screenshots zur Dokumentation hinzugefügt",
+                "ru": "Добавлены скриншоты виджетов в документацию",
+                "pt": "Capturas de ecrã dos widgets adicionadas à documentação",
+                "nl": "Widget-screenshots toegevoegd aan de documentatie",
+                "fr": "Captures d'écran des widgets ajoutées à la documentation",
+                "it": "Screenshot dei widget aggiunti alla documentazione",
+                "es": "Capturas de pantalla de widgets añadidas a la documentación",
+                "pl": "Dodano zrzuty ekranu widgetów do dokumentacji",
+                "uk": "Додано знімки екрану віджетів до документації",
+                "zh-cn": "在文档中添加小部件截图"
+            },
+            "0.4.2": {
+                "en": "Fix widget file path so vis-2 can load customWidgets.js correctly",
+                "de": "Widget-Dateipfad korrigiert, damit vis-2 customWidgets.js korrekt laden kann",
+                "ru": "Исправлен путь к файлам виджетов для корректной загрузки customWidgets.js в vis-2",
+                "pt": "Corrigido o caminho do arquivo do widget para que o vis-2 carregue customWidgets.js corretamente",
+                "nl": "Widget-bestandspad gecorrigeerd zodat vis-2 customWidgets.js correct kan laden",
+                "fr": "Correction du chemin des fichiers du widget pour que vis-2 charge customWidgets.js correctement",
+                "it": "Corretto il percorso del file del widget affinché vis-2 carichi correttamente customWidgets.js",
+                "es": "Corregida la ruta del archivo del widget para que vis-2 cargue customWidgets.js correctamente",
+                "pl": "Poprawiono ścieżkę pliku widgetu, aby vis-2 mogło poprawnie załadować customWidgets.js",
+                "uk": "Виправлено шлях до файлу віджету, щоб vis-2 міг коректно завантажити customWidgets.js",
+                "zh-cn": "修复小部件文件路径，使 vis-2 能正确加载 customWidgets.js"
+            }
+        },
+        "titleLang": {
+            "en": "Vis 2 Widgets Tibberlink",
+            "de": "Vis 2 Widgets Tibberlink",
+            "ru": "Виджеты Vis 2 Tibberlink",
+            "pt": "Vis 2 Widgets Tibberlink",
+            "nl": "Vis 2 Widgets Tibberlink",
+            "fr": "Widgets Vis 2 Tibberlink",
+            "it": "Visualizza 2 Widget Tibberlink",
+            "es": "Vis 2 Widgets Tibberlink",
+            "pl": "Vis 2 Widżety Tibberlink",
+            "uk": "Віджети Vis 2 Tibberlink",
+            "zh-cn": "Vis 2 小部件 Tibberlink"
+        },
+        "desc": {
+            "en": "Widgets for Tibberlink",
+            "de": "Widgets für Tibberlink",
+            "ru": "Виджеты для Tibberlink",
+            "pt": "Widgets para Tibberlink",
+            "nl": "Widgets voor Tibberlink",
+            "fr": "Widgets pour Tibberlink",
+            "it": "Widget per Tibberlink",
+            "es": "Widgets para Tibberlink",
+            "pl": "Widżety dla Tibberlink",
+            "uk": "Віджети для Tibberlink",
+            "zh-cn": "Tibberlink 小部件"
+        },
+        "authors": [
+            "ssbingo <s.sternitzke@online.de>"
+        ],
+        "keywords": [
+            "tibberlink",
+            "tibber",
+            "vis-2"
+        ],
+        "licenseInformation": {
+            "type": "free",
+            "license": "MIT"
+        },
+        "visWidgets": {
+            "vis2TibberWidgets": {
+                "i18n": "component",
+                "name": "vis2TibberWidgets",
+                "url": "vis-2-widgets-tibberlink/customWidgets.js",
+                "bundlerType": "module",
+                "components": [
+                    "TibberCurrentPrice",
+                    "TibberCheapestWindow",
+                    "TibberLivePower",
+                    "TibberMonthlyCost"
+                ]
+            }
+        },
+        "platform": "Javascript/Node.js",
+        "icon": "vis-2-widgets-tibberlink.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png",
+        "readme": "https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/README.md",
+        "loglevel": "info",
+        "tier": 3,
+        "onlyWWW": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "mode": "none",
+        "adminUI": {
+            "config": "none"
+        },
+        "dependencies": [
+            {
+                "vis-2": ">=2.0.0"
+            }
+        ],
+        "globalDependencies": []
     },
-    "titleLang": {
-      "en": "Vis 2 Widgets Tibberlink",
-      "de": "Vis 2 Widgets Tibberlink",
-      "ru": "Виджеты Vis 2 Tibberlink",
-      "pt": "Vis 2 Widgets Tibberlink",
-      "nl": "Vis 2 Widgets Tibberlink",
-      "fr": "Widgets Vis 2 Tibberlink",
-      "it": "Visualizza 2 Widget Tibberlink",
-      "es": "Vis 2 Widgets Tibberlink",
-      "pl": "Vis 2 Widżety Tibberlink",
-      "uk": "Віджети Vis 2 Tibberlink",
-      "zh-cn": "Vis 2 小部件 Tibberlink"
-    },
-    "desc": {
-      "en": "Widgets for Tibberlink",
-      "de": "Widgets für Tibberlink",
-      "ru": "Виджеты для Tibberlink",
-      "pt": "Widgets para Tibberlink",
-      "nl": "Widgets voor Tibberlink",
-      "fr": "Widgets pour Tibberlink",
-      "it": "Widget per Tibberlink",
-      "es": "Widgets para Tibberlink",
-      "pl": "Widżety dla Tibberlink",
-      "uk": "Віджети для Tibberlink",
-      "zh-cn": "Tibberlink 小部件"
-    },
-    "authors": [
-      "ssbingo <s.sternitzke@online.de>"
-    ],
-    "keywords": [
-      "tibberlink",
-      "tibber",
-      "vis-2"
-    ],
-    "licenseInformation": {
-      "type": "free",
-      "license": "MIT"
-    },
-    "visWidgets": {
-      "vis2TibberWidgets": {
-        "i18n": "component",
-        "name": "vis2TibberWidgets",
-        "url": "vis-2-widgets-tibberlink/customWidgets.js",
-        "bundlerType": "module",
-        "components": [
-          "TibberCurrentPrice",
-          "TibberCheapestWindow",
-          "TibberLivePower",
-          "TibberMonthlyCost"
-        ]
-      }
-    },
-    "platform": "Javascript/Node.js",
-    "icon": "vis-2-widgets-tibberlink.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png",
-    "readme": "https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/blob/main/README.md",
-    "loglevel": "info",
-    "tier": 3,
-    "onlyWWW": true,
-    "singleton": true,
-    "type": "visualization-widgets",
-    "mode": "none",
-    "adminUI": {
-      "config": "none"
-    },
-    "dependencies": [
-      {
-        "vis-2": ">=2.0.0"
-      }
-    ],
-    "globalDependencies": []
-  },
-  "native": {},
-  "objects": [],
-  "instanceObjects": []
+    "native": {},
+    "objects": [],
+    "instanceObjects": []
 }

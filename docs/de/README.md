@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.8 (2026-06-13)
+* (ssbingo) release-script auf 5.2.1 aktualisiert
+
 ### 0.4.7 (2026-05-27)
 * (ssbingo) prettier.config.mjs hinzugefügt; Code-Stil auf einfache Anführungszeichen vereinheitlicht
 

@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.8 (2026-06-13)
+* (ssbingo) 将 release-script 更新至 5.2.1
+
 ### 0.4.7 (2026-05-27)
 * (ssbingo) 添加 prettier.config.mjs；统一代码风格为单引号
 
