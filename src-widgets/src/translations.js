@@ -1,5 +1,5 @@
 const translations = {
-    prefix: 'tib_',
+    prefix: '',
     en: {},
     de: {},
     ru: {},

@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.9 (2026-06-13)
+* (ssbingo) Fix widget group name: removed translation prefix so vis-2 editor shows 'Tibberlink' correctly
+
 ### 0.4.8 (2026-06-13)
 * (ssbingo) Update release-script to 5.2.1
 

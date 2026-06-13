@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.9 (2026-06-13)
+* (ssbingo) Gruppenname-Präfix entfernt; vis-2 zeigt nun korrekt 'Tibberlink'
+
 ### 0.4.8 (2026-06-13)
 * (ssbingo) release-script auf 5.2.1 aktualisiert
 
