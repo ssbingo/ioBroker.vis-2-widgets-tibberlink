@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.10 (2026-06-13)
+* (ssbingo) Heruitgave om correct widgetgroeplabel 'Tibberlink' te garanderen
+
 ### 0.4.9 (2026-06-13)
 * (ssbingo) Prefix widgetgroepnaam verwijderd; vis-2 toont nu correct 'Tibberlink'
 

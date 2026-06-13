@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.4.10 (2026-06-13)
+* (ssbingo) Ponowna publikacja zapewniająca poprawną etykietę grupy widżetów 'Tibberlink'
+
 ### 0.4.9 (2026-06-13)
 * (ssbingo) Usunięto prefiks nazwy grupy widżetów; vis-2 poprawnie wyświetla 'Tibberlink'
 

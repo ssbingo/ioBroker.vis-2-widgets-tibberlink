@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.10 (2026-06-13)
+* (ssbingo) Nouvelle publication pour garantir l'affichage correct du groupe 'Tibberlink'
+
 ### 0.4.9 (2026-06-13)
 * (ssbingo) Suppression du préfixe du nom du groupe de widgets ; vis-2 affiche désormais 'Tibberlink'
 

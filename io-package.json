@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-tibberlink",
-        "version": "0.4.9",
+        "version": "0.4.10",
         "news": {
-            "0.4.9": {
-                "en": "fix: remove widget group name prefix so vis-2 editor shows 'Tibberlink' correctly",
-                "de": "fix: Präfix für Widget-Gruppenname entfernt; vis-2 zeigt nun korrekt 'Tibberlink'",
-                "ru": "fix: удалён префикс имени группы виджетов; vis-2 теперь корректно отображает 'Tibberlink'",
-                "nl": "fix: prefix widgetgroepnaam verwijderd; vis-2 toont nu correct 'Tibberlink'",
-                "fr": "fix: suppression du préfixe du nom du groupe de widgets ; vis-2 affiche désormais correctement 'Tibberlink'",
-                "it": "fix: rimosso il prefisso del nome del gruppo widget; vis-2 ora mostra correttamente 'Tibberlink'",
-                "es": "fix: eliminado el prefijo del nombre del grupo de widgets; vis-2 ahora muestra correctamente 'Tibberlink'",
-                "pl": "fix: usunięto prefiks nazwy grupy widżetów; vis-2 teraz poprawnie wyświetla 'Tibberlink'",
-                "pt": "fix: removido o prefixo do nome do grupo de widgets; vis-2 agora exibe corretamente 'Tibberlink'",
-                "uk": "fix: видалено префікс назви групи віджетів; vis-2 тепер коректно відображає 'Tibberlink'",
-                "zh-cn": "fix: 移除小部件组名前缀，vis-2 编辑器现在正确显示 'Tibberlink'"
+            "0.4.10": {
+                "en": "fix: re-release to ensure correct widget group label 'Tibberlink' is served (clears cached 0.4.9)",
+                "de": "fix: Neuveröffentlichung zur Sicherstellung des korrekten Widget-Gruppennamens 'Tibberlink' (Cache-Bereinigung)",
+                "ru": "fix: повторный выпуск для корректного отображения метки группы виджетов 'Tibberlink'",
+                "nl": "fix: heruitgave om correct widgetgroeplabel 'Tibberlink' te garanderen (cache wissen)",
+                "fr": "fix: nouvelle publication pour garantir l'affichage correct du groupe 'Tibberlink'",
+                "it": "fix: nuova pubblicazione per garantire la corretta etichetta del gruppo widget 'Tibberlink'",
+                "es": "fix: nueva publicación para asegurar la etiqueta de grupo 'Tibberlink' correcta",
+                "pl": "fix: ponowna publikacja zapewniająca poprawną etykietę grupy widżetów 'Tibberlink'",
+                "pt": "fix: nova publicação para garantir o rótulo correto do grupo de widgets 'Tibberlink'",
+                "uk": "fix: повторний випуск для коректного відображення мітки групи віджетів 'Tibberlink'",
+                "zh-cn": "fix: 重新发布以确保正确显示小部件组名 'Tibberlink'"
             }
         },
         "titleLang": {
