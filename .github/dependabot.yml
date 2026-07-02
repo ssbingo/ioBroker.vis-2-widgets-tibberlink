@@ -1,25 +1,29 @@
+# Dependabot will run on day 12 of each month at 03:04 (Europe/Berlin timezone)
 version: 2
 updates:
-  - package-ecosystem: npm
+
+  - package-ecosystem: 'npm'
     directories:
-      - "**/*"
+      - '**/*'
     schedule:
-      interval: weekly
+      interval: 'weekly'
+      timezone: 'Europe/Berlin'
     open-pull-requests-limit: 15
     assignees:
-      - ssbingo
-    versioning-strategy: increase
+      - 'ssbingo'
+    versioning-strategy: 'increase'
     cooldown:
       default: 7
     ignore:
-      - dependency-name: "@types/node"
+      - dependency-name: '@types/node'
         update-types:
-          - "version-update:semver-major"
+          - 'version-update:semver-major'
 
-  - package-ecosystem: github-actions
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: weekly
+      interval: 'weekly'
+      timezone: 'Europe/Berlin'
     open-pull-requests-limit: 15
     assignees:
-      - ssbingo
+      - 'ssbingo'
