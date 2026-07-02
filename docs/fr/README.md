@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sync PR modèles : config Dependabot, workflow auto-merge, lien schéma VS Code
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Nouvelle publication pour garantir l'affichage correct du groupe 'Tibberlink'
 

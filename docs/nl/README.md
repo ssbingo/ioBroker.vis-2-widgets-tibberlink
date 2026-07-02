@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sjabloon-PR's gesynchroniseerd: Dependabot-config, auto-merge-workflow, VS Code-schemalink
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Heruitgave om correct widgetgroeplabel 'Tibberlink' te garanderen
 

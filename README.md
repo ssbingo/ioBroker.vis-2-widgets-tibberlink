@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sync template PRs: update Dependabot config, add auto-merge workflow, fix VS Code schema link
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Re-release to ensure widget group label 'Tibberlink' is served correctly
 
@@ -141,8 +144,6 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 * (ssbingo) New widget: monthly electricity cost with consumption, avg. price and projection
 
 Older changelog entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Documentation
 

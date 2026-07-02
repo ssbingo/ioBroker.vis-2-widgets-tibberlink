@@ -102,6 +102,9 @@ Aggrega i dati di consumo `jsonDaily` di tibberlink per il mese solare corrente.
 
 ## Changelog
 
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sincronizzazione PR template: config Dependabot, workflow auto-merge, link schema VS Code
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Nuova pubblicazione per garantire la corretta etichetta del gruppo widget 'Tibberlink'
 

@@ -102,6 +102,9 @@ Aggregiert die tibberlink-`jsonDaily`-Verbrauchsdaten für den laufenden Kalende
 
 ## Changelog
 
+### 0.4.11 (2026-07-02)
+* (ssbingo) Template-PRs synchronisiert: Dependabot-Konfiguration, Auto-Merge-Workflow, VS-Code-Schema-Link
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Neuveröffentlichung zur Sicherstellung des korrekten Widget-Gruppennamens 'Tibberlink'
 

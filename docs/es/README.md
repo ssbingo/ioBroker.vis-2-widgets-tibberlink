@@ -102,6 +102,9 @@ Agrega los datos de consumo `jsonDaily` de tibberlink para el mes calendario act
 
 ## Changelog
 
+### 0.4.11 (2026-07-02)
+* (ssbingo) Sincronización de PRs de plantilla: config Dependabot, workflow auto-merge, enlace esquema VS Code
+
 ### 0.4.10 (2026-06-13)
 * (ssbingo) Nueva publicación para asegurar la etiqueta de grupo 'Tibberlink' correcta
 

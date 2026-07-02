@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-tibberlink",
-        "version": "0.4.10",
+        "version": "0.4.11",
         "news": {
-            "0.4.10": {
-                "en": "fix: re-release to ensure correct widget group label 'Tibberlink' is served (clears cached 0.4.9)",
-                "de": "fix: Neuveröffentlichung zur Sicherstellung des korrekten Widget-Gruppennamens 'Tibberlink' (Cache-Bereinigung)",
-                "ru": "fix: повторный выпуск для корректного отображения метки группы виджетов 'Tibberlink'",
-                "nl": "fix: heruitgave om correct widgetgroeplabel 'Tibberlink' te garanderen (cache wissen)",
-                "fr": "fix: nouvelle publication pour garantir l'affichage correct du groupe 'Tibberlink'",
-                "it": "fix: nuova pubblicazione per garantire la corretta etichetta del gruppo widget 'Tibberlink'",
-                "es": "fix: nueva publicación para asegurar la etiqueta de grupo 'Tibberlink' correcta",
-                "pl": "fix: ponowna publikacja zapewniająca poprawną etykietę grupy widżetów 'Tibberlink'",
-                "pt": "fix: nova publicação para garantir o rótulo correto do grupo de widgets 'Tibberlink'",
-                "uk": "fix: повторний випуск для коректного відображення мітки групи віджетів 'Tibberlink'",
-                "zh-cn": "fix: 重新发布以确保正确显示小部件组名 'Tibberlink'"
+            "0.4.11": {
+                "en": "sync template PRs: update Dependabot config, add auto-merge workflow, fix VS Code schema link",
+                "de": "Template-PRs synchronisiert: Dependabot-Konfiguration, Auto-Merge-Workflow, VS-Code-Schema-Link",
+                "ru": "Синхронизация шаблонных PR: обновление Dependabot, авто-слияние, исправление схемы VS Code",
+                "nl": "Sjabloon-PR's gesynchroniseerd: Dependabot-config, auto-merge-workflow, VS Code-schemalink",
+                "fr": "Sync PR modèles : config Dependabot, workflow auto-merge, lien schéma VS Code",
+                "it": "Sincronizzazione PR template: config Dependabot, workflow auto-merge, link schema VS Code",
+                "es": "Sincronización de PRs de plantilla: config Dependabot, workflow auto-merge, enlace esquema VS Code",
+                "pl": "Synchronizacja PR szablonów: konfiguracja Dependabot, workflow auto-merge, link schematu VS Code",
+                "pt": "Sincronização de PRs de template: config Dependabot, workflow auto-merge, link schema VS Code",
+                "uk": "Синхронізація шаблонних PR: конфігурація Dependabot, auto-merge, посилання схеми VS Code",
+                "zh-cn": "同步模板 PR：更新 Dependabot 配置、自动合并工作流、修复 VS Code 架构链接"
             }
         },
         "titleLang": {
