@@ -13,7 +13,7 @@
     "@iobroker/vis-2-widgets-react-dev": "^4.0.4",
     "@originjs/vite-plugin-federation": "^1.4.1",
     "@vitejs/plugin-react": "^6.0.4",
-    "react": "^19.2.7",
+    "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "vite": "^8.1.5"
   }
