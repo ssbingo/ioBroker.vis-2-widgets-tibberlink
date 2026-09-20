@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.4.14 (2026-09-20)
+* (ssbingo) Mise à jour des dépendances de développement (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) et reconstruction du bundle de widgets
+
 ### 0.4.13 (2026-09-12)
 * (ssbingo) Suppression de quatre dépendances de développement React inutilisées dans src-widgets ; le bundle de widgets publié est inchangé
 

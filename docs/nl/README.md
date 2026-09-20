@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.14 (2026-09-20)
+* (ssbingo) Ontwikkelafhankelijkheden bijgewerkt (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) en widgetbundel opnieuw gebouwd
+
 ### 0.4.13 (2026-09-12)
 * (ssbingo) Vier ongebruikte React-ontwikkelafhankelijkheden uit src-widgets verwijderd; de gepubliceerde widgetbundel is ongewijzigd
 

@@ -102,6 +102,9 @@ Agrega los datos de consumo `jsonDaily` de tibberlink para el mes calendario act
 
 ## Changelog
 
+### 0.4.14 (2026-09-20)
+* (ssbingo) Se actualizan las dependencias de desarrollo (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) y se reconstruye el paquete de widgets
+
 ### 0.4.13 (2026-09-12)
 * (ssbingo) Se eliminan cuatro dependencias de desarrollo de React sin uso de src-widgets; el paquete de widgets publicado no cambia
 

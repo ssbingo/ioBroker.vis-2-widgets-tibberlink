@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-tibberlink",
-        "version": "0.4.13",
+        "version": "0.4.14",
         "news": {
+            "0.4.14": {
+                "en": "update dev dependencies (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) and rebuild the widget bundle",
+                "de": "Entwicklungsabhängigkeiten aktualisiert (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) und Widget-Bundle neu gebaut",
+                "ru": "обновлены зависимости разработки (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0), бандл виджетов пересобран",
+                "nl": "ontwikkelafhankelijkheden bijgewerkt (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) en widgetbundel opnieuw gebouwd",
+                "fr": "mise à jour des dépendances de développement (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) et reconstruction du bundle de widgets",
+                "it": "aggiornate le dipendenze di sviluppo (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) e ricompilato il bundle dei widget",
+                "es": "se actualizan las dependencias de desarrollo (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) y se reconstruye el paquete de widgets",
+                "pl": "zaktualizowano zależności deweloperskie (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) i przebudowano pakiet widżetów",
+                "pt": "atualizadas as dependências de desenvolvimento (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) e recompilado o pacote de widgets",
+                "uk": "оновлено залежності розробки (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) та перезібрано бандл віджетів",
+                "zh-cn": "更新开发依赖（@iobroker/testing 6.2.1、React 19.3.0、Vite 8.3.0）并重新构建小部件包"
+            },
             "0.4.13": {
                 "en": "remove four unused React dev dependencies from src-widgets; the published widget bundle is unchanged",
                 "de": "vier ungenutzte React-Entwicklungsabhängigkeiten aus src-widgets entfernt; das veröffentlichte Widget-Bundle bleibt unverändert",
