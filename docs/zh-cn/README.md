@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.4.15 (2026-09-25)
+* (ssbingo) 修复：自 0.4.12 起小部件无法在 VIS-2 中加载（"e.forEach is not a function")。Vite 8 的 oxc 压缩器会把字符串字面量改写为模板字面量，导致 federation 插件未替换其 CSS 占位符。构建现固定使用 esbuild，并新增测试加以防范
+
 ### 0.4.14 (2026-09-20)
 * (ssbingo) 更新开发依赖（@iobroker/testing 6.2.1、React 19.3.0、Vite 8.3.0）并重新构建小部件包
 

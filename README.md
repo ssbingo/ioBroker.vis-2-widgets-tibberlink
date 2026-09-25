@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.15 (2026-09-25)
+* (ssbingo) Fix: widgets could not be loaded in VIS-2 since 0.4.12 ("e.forEach is not a function"). Vite 8's oxc minifier rewrites string literals to template literals, so the federation plugin left its CSS placeholder unreplaced. The build now pins the esbuild minifier and a new test guards against it
+
 ### 0.4.14 (2026-09-20)
 * (ssbingo) Update dev dependencies (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) and rebuild the widget bundle
 

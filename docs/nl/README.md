@@ -102,6 +102,9 @@ Aggregeert de tibberlink `jsonDaily`-verbruiksdata voor de lopende kalendermaand
 
 ## Changelog
 
+### 0.4.15 (2026-09-25)
+* (ssbingo) Fix: widgets konden sinds 0.4.12 niet meer in VIS-2 geladen worden ("e.forEach is not a function"). De oxc-minifier van Vite 8 zet stringliterals om in template literals, waardoor de federation-plug-in zijn CSS-placeholder niet verving. De build gebruikt nu esbuild, een nieuwe test bewaakt dit
+
 ### 0.4.14 (2026-09-20)
 * (ssbingo) Ontwikkelafhankelijkheden bijgewerkt (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) en widgetbundel opnieuw gebouwd
 

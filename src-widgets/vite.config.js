@@ -23,7 +23,13 @@ export default defineConfig({
         emptyOutDir: true,
         target: 'esnext',
         assetsDir: '',
-        minify: true,
+        // Must stay 'esbuild'. Vite 8 is Rolldown-based and minify:true means the oxc
+        // minifier, which rewrites string literals to template literals. That defeats the
+        // regex @originjs/vite-plugin-federation uses in generateBundle to replace its
+        // '__v__css__<path>' placeholders -- it only matches ["'] quotes. The placeholder
+        // then survives into customWidgets.js and VIS-2 fails to load every widget with
+        // "TypeError: e.forEach is not a function" (broken in v0.4.12 - v0.4.14).
+        minify: 'esbuild',
         rollupOptions: {
             input: 'src/bootstrap.js',
             output: {

@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-tibberlink",
-        "version": "0.4.14",
+        "version": "0.4.15",
         "news": {
+            "0.4.15": {
+                "en": "fix: widgets could not be loaded in VIS-2 since 0.4.12 (\"e.forEach is not a function\") - the Vite 8 build left a federation CSS placeholder unreplaced",
+                "de": "fix: Widgets ließen sich seit 0.4.12 nicht mehr in VIS-2 laden (\"e.forEach is not a function\") - der Vite-8-Build ersetzte einen Federation-CSS-Platzhalter nicht",
+                "ru": "fix: с версии 0.4.12 виджеты не загружались в VIS-2 (\"e.forEach is not a function\") - сборка Vite 8 не заменяла CSS-плейсхолдер federation",
+                "nl": "fix: widgets konden sinds 0.4.12 niet meer in VIS-2 geladen worden (\"e.forEach is not a function\") - de Vite 8-build verving een federation-CSS-placeholder niet",
+                "fr": "fix : les widgets ne se chargeaient plus dans VIS-2 depuis la 0.4.12 (\"e.forEach is not a function\") - le build Vite 8 ne remplaçait pas un placeholder CSS de federation",
+                "it": "fix: dalla 0.4.12 i widget non si caricavano in VIS-2 (\"e.forEach is not a function\") - la build Vite 8 non sostituiva un segnaposto CSS di federation",
+                "es": "fix: desde 0.4.12 los widgets no se cargaban en VIS-2 (\"e.forEach is not a function\") - la compilación de Vite 8 no sustituía un marcador CSS de federation",
+                "pl": "fix: od 0.4.12 widżety nie ładowały się w VIS-2 (\"e.forEach is not a function\") - kompilacja Vite 8 nie zastępowała symbolu zastępczego CSS federation",
+                "pt": "fix: desde 0.4.12 os widgets não carregavam no VIS-2 (\"e.forEach is not a function\") - a compilação do Vite 8 não substituía um marcador CSS do federation",
+                "uk": "fix: починаючи з 0.4.12 віджети не завантажувалися у VIS-2 (\"e.forEach is not a function\") - збірка Vite 8 не замінювала CSS-заповнювач federation",
+                "zh-cn": "fix：自 0.4.12 起小部件无法在 VIS-2 中加载（\"e.forEach is not a function\")——Vite 8 构建未替换 federation 的 CSS 占位符"
+            },
             "0.4.14": {
                 "en": "update dev dependencies (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) and rebuild the widget bundle",
                 "de": "Entwicklungsabhängigkeiten aktualisiert (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) und Widget-Bundle neu gebaut",

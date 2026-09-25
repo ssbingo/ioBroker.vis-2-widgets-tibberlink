@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.4.15 (2026-09-25)
+* (ssbingo) Poprawka: od 0.4.12 widżety nie ładowały się w VIS-2 ("e.forEach is not a function"). Minifikator oxc z Vite 8 zamienia literały łańcuchowe na literały szablonowe, przez co wtyczka federation nie zastępowała symbolu CSS. Kompilacja używa teraz esbuild, a nowy test tego pilnuje
+
 ### 0.4.14 (2026-09-20)
 * (ssbingo) Zaktualizowano zależności deweloperskie (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) i przebudowano pakiet widżetów
 
