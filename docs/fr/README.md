@@ -102,6 +102,9 @@ Agrège les données de consommation `jsonDaily` de tibberlink pour le mois cale
 
 ## Changelog
 
+### 0.5.0 (2026-09-25)
+* (ssbingo) Build des widgets migré de @originjs/vite-plugin-federation vers @module-federation/vite, le runtime Module Federation 2 utilisé par vis-2 lui-même. Le bundle fournit désormais mf-manifest.json et partage react et react/jsx-runtime avec vis-2 au lieu d'embarquer sa propre copie - ce que vis-2 vérifie avant de charger un jeu de widgets
+
 ### 0.4.15 (2026-09-25)
 * (ssbingo) Correctif : les widgets ne se chargeaient plus dans VIS-2 depuis la 0.4.12 ("e.forEach is not a function"). Le minifieur oxc de Vite 8 convertit les littéraux de chaîne en littéraux de gabarit, si bien que le plugin federation ne remplaçait pas son placeholder CSS. Le build utilise désormais esbuild, un nouveau test le vérifie
 

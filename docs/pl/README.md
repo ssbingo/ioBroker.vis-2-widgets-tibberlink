@@ -102,6 +102,9 @@ Agreguje dane zużycia `jsonDaily` tibberlink dla bieżącego miesiąca kalendar
 
 ## Changelog
 
+### 0.5.0 (2026-09-25)
+* (ssbingo) Build widżetów przeniesiony z @originjs/vite-plugin-federation na @module-federation/vite, środowisko Module Federation 2 używane przez samo vis-2. Pakiet zawiera teraz mf-manifest.json i współdzieli react oraz react/jsx-runtime z vis-2 zamiast dołączać własną kopię - dokładnie to sprawdza vis-2 przed załadowaniem zestawu widżetów
+
 ### 0.4.15 (2026-09-25)
 * (ssbingo) Poprawka: od 0.4.12 widżety nie ładowały się w VIS-2 ("e.forEach is not a function"). Minifikator oxc z Vite 8 zamienia literały łańcuchowe na literały szablonowe, przez co wtyczka federation nie zastępowała symbolu CSS. Kompilacja używa teraz esbuild, a nowy test tego pilnuje
 

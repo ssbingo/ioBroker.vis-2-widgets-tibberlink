@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-tibberlink",
-        "version": "0.4.15",
+        "version": "0.5.0",
         "news": {
+            "0.5.0": {
+                "en": "switch the widget build to @module-federation/vite, the Module Federation 2 runtime vis-2 itself uses; react and react/jsx-runtime now come from vis-2 instead of being bundled",
+                "de": "Widget-Build auf @module-federation/vite umgestellt, die Module-Federation-2-Runtime von vis-2 selbst; react und react/jsx-runtime kommen jetzt von vis-2 statt aus dem Bundle",
+                "ru": "сборка виджетов переведена на @module-federation/vite - ту же среду Module Federation 2, что использует сам vis-2; react и react/jsx-runtime теперь берутся из vis-2",
+                "nl": "widget-build overgezet naar @module-federation/vite, de Module Federation 2-runtime van vis-2 zelf; react en react/jsx-runtime komen nu van vis-2 in plaats van uit de bundel",
+                "fr": "build des widgets basculé sur @module-federation/vite, le runtime Module Federation 2 utilisé par vis-2 lui-même ; react et react/jsx-runtime proviennent désormais de vis-2",
+                "it": "build dei widget migrata a @module-federation/vite, il runtime Module Federation 2 usato da vis-2 stesso; react e react/jsx-runtime ora arrivano da vis-2",
+                "es": "la compilación de widgets pasa a @module-federation/vite, el runtime de Module Federation 2 que usa el propio vis-2; react y react/jsx-runtime ahora provienen de vis-2",
+                "pl": "build widżetów przeniesiony na @module-federation/vite, środowisko Module Federation 2 używane przez samo vis-2; react i react/jsx-runtime pochodzą teraz z vis-2",
+                "pt": "build dos widgets migrada para @module-federation/vite, o runtime Module Federation 2 usado pelo próprio vis-2; react e react/jsx-runtime agora vêm do vis-2",
+                "uk": "збірку віджетів переведено на @module-federation/vite - середовище Module Federation 2, яке використовує сам vis-2; react і react/jsx-runtime тепер надходять від vis-2",
+                "zh-cn": "小部件构建切换到 @module-federation/vite，即 vis-2 自身使用的 Module Federation 2 运行时；react 与 react/jsx-runtime 现由 vis-2 提供，不再打包"
+            },
             "0.4.15": {
                 "en": "fix: widgets could not be loaded in VIS-2 since 0.4.12 (\"e.forEach is not a function\") - the Vite 8 build left a federation CSS placeholder unreplaced",
                 "de": "fix: Widgets ließen sich seit 0.4.12 nicht mehr in VIS-2 laden (\"e.forEach is not a function\") - der Vite-8-Build ersetzte einen Federation-CSS-Platzhalter nicht",

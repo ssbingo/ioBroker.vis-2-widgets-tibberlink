@@ -102,6 +102,9 @@
 
 ## 更新日志
 
+### 0.5.0 (2026-09-25)
+* (ssbingo) 小部件构建从 @originjs/vite-plugin-federation 切换到 @module-federation/vite，即 vis-2 自身使用的 Module Federation 2 运行时。构建产物现包含 mf-manifest.json，并与 vis-2 共享 react 和 react/jsx-runtime，而非自带副本——这正是 vis-2 加载小部件集前所检查的内容
+
 ### 0.4.15 (2026-09-25)
 * (ssbingo) 修复：自 0.4.12 起小部件无法在 VIS-2 中加载（"e.forEach is not a function")。Vite 8 的 oxc 压缩器会把字符串字面量改写为模板字面量，导致 federation 插件未替换其 CSS 占位符。构建现固定使用 esbuild，并新增测试加以防范
 

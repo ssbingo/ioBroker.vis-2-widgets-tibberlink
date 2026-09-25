@@ -1,43 +1,59 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import federation from '@originjs/vite-plugin-federation';
+import { readFileSync, rmSync } from 'node:fs';
+import { resolve } from 'node:path';
 
-export default defineConfig({
+import react from '@vitejs/plugin-react';
+import { federation } from '@module-federation/vite';
+import { moduleFederationShared } from '@iobroker/types-vis-2/modulefederation.vis.config';
+
+const pack = JSON.parse(readFileSync('./package.json').toString());
+
+const OUT_DIR = '../widgets/vis-2-widgets-tibberlink';
+
+// index.html only exists so that vite has an app entry for the build - the widgets are served
+// through customWidgets.js. mf-stats.json is the verbose twin of mf-manifest.json and nothing
+// reads it here. Neither belongs in the published package, so drop both once the build is written.
+const dropBuildLeftovers = {
+    name: 'drop-build-leftovers',
+    closeBundle() {
+        for (const file of ['index.html', 'mf-stats.json']) {
+            rmSync(resolve(OUT_DIR, file), { force: true });
+        }
+    },
+};
+
+// Module Federation 2 - the same runtime vis-2 itself runs. It emits customWidgets.js
+// (the remote entry named in io-package.json -> common.visWidgets) next to mf-manifest.json.
+//
+// The manifest is mandatory, not a build artifact we could drop: vis-2 reads it in
+// visWidgetSetCompatibility.ts and skips any widget set whose "shared" list lacks react or
+// react/jsx-runtime. A set that bundles its own JSX runtime stamps its elements with a
+// different symbol than react 19 expects, so vis-2 locks it out instead of letting it fail
+// somewhere deep in the render. moduleFederationShared() declares both as singletons, which
+// means react comes from vis-2 at runtime and is never bundled here.
+export default {
     plugins: [
-        react(),
         federation({
+            manifest: true,
             name: 'vis2TibberWidgets',
             filename: 'customWidgets.js',
             exposes: {
-                './TibberCurrentPrice':   './src/TibberCurrentPrice',
+                './TibberCurrentPrice': './src/TibberCurrentPrice',
                 './TibberCheapestWindow': './src/TibberCheapestWindow',
-                './TibberLivePower':      './src/TibberLivePower',
-                './TibberMonthlyCost':    './src/TibberMonthlyCost',
-                './translations':         './src/translations',
+                './TibberLivePower': './src/TibberLivePower',
+                './TibberMonthlyCost': './src/TibberMonthlyCost',
+                './translations': './src/translations',
             },
-            shared: {},
+            remotes: {},
+            shared: moduleFederationShared(pack),
+            dts: false,
         }),
+        react(),
+        dropBuildLeftovers,
     ],
+    base: './',
     build: {
-        outDir: '../widgets/vis-2-widgets-tibberlink',
+        target: 'es2022',
+        outDir: OUT_DIR,
         emptyOutDir: true,
-        target: 'esnext',
-        assetsDir: '',
-        // Must stay 'esbuild'. Vite 8 is Rolldown-based and minify:true means the oxc
-        // minifier, which rewrites string literals to template literals. That defeats the
-        // regex @originjs/vite-plugin-federation uses in generateBundle to replace its
-        // '__v__css__<path>' placeholders -- it only matches ["'] quotes. The placeholder
-        // then survives into customWidgets.js and VIS-2 fails to load every widget with
-        // "TypeError: e.forEach is not a function" (broken in v0.4.12 - v0.4.14).
-        minify: 'esbuild',
-        rollupOptions: {
-            input: 'src/bootstrap.js',
-            output: {
-                format: 'esm',
-                minifyInternalExports: true,
-                entryFileNames: '[name].js',
-                chunkFileNames: '[name].js',
-            },
-        },
     },
-});
+};
